@@ -1,1 +1,71 @@
 # odissei-machine-learning
+
+
+## Potential table of content
+
+- Introduction (sk-tutorial, Peters)
+    -  What is ML
+    -  AI, ML and DL
+    -  ML and Statistics
+    -  Types of ML
+        -  Supervised learning
+            -  Regression
+            -  Classification
+        -  Unsupervised learning
+            -  Clustering
+            -  Dimensionality Reduction
+        -  Reinforcement learning
+    -  Glossary for social science people
+-  ML Workflow (with scikit-learn code)
+    -  Formulate / Outline the problem
+    -  Identify inputs and outputs (data exploration)
+        -  Intro Pandas, numpy, seaborn
+        -  Data statistics and plots
+        -  conversion (e.g. from Yes/No to 1/0)
+    -  Prepare data (preprocessing)
+        -  check missing data
+        -  clean data
+        -  splitting data
+    -  Choose an algorithm
+        -  Use sklearn.dummy.DummyRegressor
+    -  Train the model
+    -  Measure performance (validate the model)
+        -  Cross validation
+    -  Perform a Prediction/Classification (applying the model)
+    -  Save model
+-  Regression example
+    -  Ordinary Least squares
+    -  SVM
+-  Classification example
+    -  Nearest neighbors
+    -  Decision trees
+        -  Random forest
+-  Metrics
+    -  Classification
+        -  F1 score
+            -  Accuracy
+        -  Confusion matrix
+        -  ROC
+    -  Regression
+-  Feature selection / dimensionality reduction
+    -  Cross correlation
+    -  PCA
+    -  tSNE
+-  Hyper-parameter optimizers
+    -  sk-learn.model_selection.GridSearchCV
+-  ML algorithms
+    -  Nearest neighbors
+    -  Ordinary Least squares
+    -  Logistic regression
+    -  Naïve Bayes
+    -  Decision trees
+    -  Random forest
+    -  SVM
+    -  Neural net
+        -  Single-layer perceptron
+        -  Multi-layer perceptron
+-  Best practices
+-  Exercise (+Q&A, whole afternoon)
+    -  Setup own experiment (with their own dataset and questions)
+-  Useful resources
+    -  https://scikit-learn.org/stable/_static/ml_map.png
