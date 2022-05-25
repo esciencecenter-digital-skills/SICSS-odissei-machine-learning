@@ -29,9 +29,9 @@
     -  Choose an algorithm
         -  Use sklearn.dummy.DummyRegressor
     -  Train the model
+    -  Perform a Prediction/Classification (applying the model)
     -  Measure performance (validate the model)
         -  Cross validation
-    -  Perform a Prediction/Classification (applying the model)
     -  Save model
 -  Regression example
     -  Ordinary Least squares
