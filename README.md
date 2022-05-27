@@ -3,7 +3,7 @@
 
 ## Potential table of content
 
-- Introduction (sk-tutorial, Peters)
+- Introduction
     -  What is ML
     -  AI, ML and DL
     -  ML and Statistics
