@@ -15,7 +15,11 @@
             -  Clustering
             -  Dimensionality Reduction
         -  Reinforcement learning
-    -  Glossary for social science people
+    - Limitations of machine learning
+        - Data
+        - Extrapolation
+        - Interpretation of Results
+    - Machine learning glossary
 -  ML Workflow (with scikit-learn code)
     -  Formulate / Outline the problem
     -  Identify inputs and outputs (data exploration)
