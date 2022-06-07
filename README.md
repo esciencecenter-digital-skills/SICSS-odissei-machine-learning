@@ -1,6 +1,24 @@
 # odissei-machine-learning
 
 
+## TOC 
+
+Day 1
+- Introduction slides (1h)
+- NB1 (45min)
+- NB2 (30min)
+- Theory on classification (45min)
+- NB3 (45min)
+- Theory on performance (20min)
+- NB4 (45min)
+
+Day 2
+- Theory on regression (45min)
+- NB5 (30min)
+- Feature selection
+- Best practices
+
+
 ## Potential table of content
 
 - Introduction - **Slides to be created from [introduction content](https://github.com/esciencecenter-digital-skills/SICSS-odissei-machine-learning/blob/main/1-Intro.md)**
@@ -72,4 +90,6 @@
 -  Exercise (+Q&A, whole afternoon)
     -  Setup own experiment (with their own dataset and questions)
 -  Useful resources
-    -  https://scikit-learn.org/stable/_static/ml_map.png
+    - [ML Map](https://scikit-learn.org/stable/_static/ml_map.png)
+    - [Data Science cookiecutter](https://drivendata.github.io/cookiecutter-data-science/)
+    - [The Turning Way](https://the-turing-way.netlify.app/welcome)
