@@ -5,18 +5,19 @@
 
 Day 1
 Morning
-- Introduction slides (1h)
-- NB1 (45min)
-- NB2 (30min)
-- Theory on (binary) classification (45min)
+- Course intro (Dafne)
+- Introduction slides (1h) (Dafne)
+- NB1 (45min) (Sven)
+- NB2 (30min) (Dafne)
+- Theory on (binary) classification (45min) (Sven)
     - Decisiontree
     - Nearest neighbor
-- NB3 (45min)
+- NB3 (45min) (Sven)
 
 Afternoon
-- Theory on performance (20min)
-- NB4 (45min)
-- Apply skills to LISS
+- Theory on performance (20min) (Dafne
+- NB4 (45min) (Dafne)
+- Apply skills to LISS (Sven)
 - Presentation Joris Mulder
 
 
@@ -30,7 +31,7 @@ Morning
 - Best practices
 
 Afternoon
-- Apply to LISS data
+- Apply to LISS data (Sven)
 - Presentation Wouter van Atteveldt
 
 
