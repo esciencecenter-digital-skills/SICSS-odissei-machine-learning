@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Introduction to machine learning</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/black.css" id="theme">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Introduction to machine learning</h1>
+</section>
+
+<section class="slide level2">
+
+<!-- Author: Cunliang Geng -->
+<!-- Note: the commented lines are reference material -->
+<ul>
+<li><a href="#/introduction-to-machine-learning">Introduction to machine
+learning</a>
+<ul>
+<li><a href="#/what-is-machine-learning">What is machine
+learning</a></li>
+<li><a href="#/machine-learning-and-artificial-intelligence">Machine
+learning and artificial intelligence</a></li>
+<li><a href="#/machine-learning-and-statistics">Machine learning and
+statistics</a></li>
+<li><a href="#/types-of-machine-learning">Types of machine learning</a>
+<ul>
+<li><a href="#/supervised-learning">Supervised learning</a>
+<ul>
+<li><a href="#/classification">Classification</a></li>
+<li><a href="#/regression">Regression</a></li>
+</ul></li>
+<li><a href="#/unsupervised-learning">Unsupervised learning</a></li>
+<li><a href="#/reinforcement-learning">Reinforcement learning</a></li>
+</ul></li>
+<li><a href="#/limitations-of-machine-learning">Limitations of machine
+learning</a>
+<ul>
+<li><a href="#/data">Data</a></li>
+<li><a href="#/extrapolation">Extrapolation</a></li>
+<li><a href="#/interpretation-of-results">Interpretation of
+Results</a></li>
+</ul></li>
+<li><a href="#/machine-learning-glossary">Machine learning
+glossary</a></li>
+</ul></li>
+</ul>
+</section>
+<section>
+<section id="introduction-to-machine-learning"
+class="title-slide slide level1">
+<h1>Introduction to machine learning</h1>
+
+</section>
+<section id="what-is-machine-learning" class="slide level2">
+<h2>What is machine learning</h2>
+<p><strong>An informal definition by <a
+href="https://en.wikipedia.org/wiki/Arthur_Samuel">Arthur
+Samuel</a></strong> &gt; The field of study that gives computers the
+ability to learn without being explicitly programmed.</p>
+<p>The focus of machine learning (ML) is “learning”. A learning problem
+is about learning some properties of examples (training data) and then
+predicting those properties against other unseen data.</p>
+<p><strong>A modern definition by <a
+href="https://en.wikipedia.org/wiki/Tom_M._Mitchell">Tom
+Mitchell</a></strong> &gt; A computer program is said to learn from
+experience E with respect to some class of tasks T and performance
+measure P, if its performance at tasks in T, as measured by P, improves
+with experience E.</p>
+<p>Linking to the first definition, the experience E is actually the
+examples or training data, task T is the learning problem, and
+performance P is how well the computer program performs on task T when
+giving unknown data.</p>
+<p>For example, - predicting house price: - E = the historical price of
+many houses - T = the task of predicting house price - P = the
+performance is how exactly the program predict the house price - playing
+Go: - E = the experience of playing many games of Go - T = the task of
+playing Go - P = the probability that the program will win the next
+Go</p>
+<p><strong>The mathematical perspective:</strong></p>
+<p>The objective of ML is the function <span
+class="math inline"><em>f</em>(<em>x</em>)</span>: <span
+class="math display"><em>y</em> = <em>f</em>(<em>x</em>)</span></p>
+<p>The learning is to apply specific algorithms (learning algorithms) to
+training data to get the exact form of the function <span
+class="math inline"><em>f</em>(<em>x</em>)</span>. The learned function
+or model <span class="math inline"><em>f</em>(<em>x</em>)</span> can
+then be used to predict property <span
+class="math inline"><em>y</em></span> for input data <span
+class="math inline"><em>x</em></span>.</p>
+<p>The form of function <span
+class="math inline"><em>f</em>(<em>x</em>)</span> could be simple,
+e.g. linear function, or complex, e.g. non-linear function.</p>
+<!-- fig1.1 adapted from https://www.coursera.org/learn/machine-learning  -->
+<figure>
+<img data-src="../image/1.1-ML-objective.png" alt="ML-objective" />
+<figcaption aria-hidden="true">ML-objective</figcaption>
+</figure>
+</section>
+<section id="machine-learning-and-artificial-intelligence"
+class="slide level2">
+<h2>Machine learning and artificial intelligence</h2>
+<!-- fig1.2 adapted from book of Wu, Jun. The Beauty of Mathematics in Computer Science. -->
+<!-- https://www.ibm.com/cloud/learn/what-is-artificial-intelligence -->
+<figure>
+<img data-src="../image/1.2-ML-AI.png" alt="ML-AI" />
+<figcaption aria-hidden="true">ML-AI</figcaption>
+</figure>
+<p>Let’s treat all problems in the universe as a set. This set can be
+divided to mathematical problems and other problems (e.g. love problems,
+moral and ethical problems, cultural conflict problems and so on).</p>
+<p>Some of mathematical problems are <a
+href="https://en.wikipedia.org/wiki/Computability">computable</a>, which
+means it can be solved in principle by a computing machine, while the
+other are not.</p>
+<p><a
+href="https://en.wikipedia.org/wiki/Artificial_intelligence">AI</a> is a
+subgroup of computable problems. It tries to make intelligent machines,
+especially intelligent computer programs. It also means computability is
+the limit of AI. AI cannot do everything, cannot solve the problems that
+is not computable.</p>
+<p>AI problems or goals include e.g problem-solving, reasoning,
+planning, learning, communicating, acting, etc. There are various
+algorithms that try to solve these AI problems.</p>
+<p>ML is a subgroup of these AI algorithms which seek to enable machine
+to learn from examples in order to make predictions based on input data.
+ML is comprised of classical algorithms and deep learning (DL)
+algorithms. Classical ML algorithms include, e.g. linear regression,
+decision trees, support vector machine, etc.</p>
+<p>Deep learning is a specific group of algorithms that are based on
+artificial neural networks. “Deep” in deep learning refers to a neural
+network comprised of more than three layers, which would be inclusive of
+the inputs and the output.</p>
+<figure>
+<img data-src="../image/1.3-DL.png" alt="Deep learning" />
+<figcaption aria-hidden="true">Deep learning</figcaption>
+</figure>
+<!-- https://www.ibm.com/cloud/learn/what-is-artificial-intelligence -->
+<p>Classical ML algorithms and DL differ in how each algorithm learns.
+Deep learning automates much of the feature extraction piece of the
+process, eliminating some of the manual human intervention required and
+enabling the use of larger data sets. Classical machine learning is more
+dependent on human intervention to learn. Human experts determine the
+hierarchy of features to understand the differences between data inputs,
+usually requiring more structured data to learn.</p>
+</section>
+<section id="machine-learning-and-statistics" class="slide level2">
+<h2>Machine learning and statistics</h2>
+<!-- https://www.nature.com/articles/nmeth.4642 -->
+<!-- https://en.wikipedia.org/wiki/Machine_learning#Statistics -->
+<p>Machine learning and statistics are closely related fields in terms
+of methods, but distinct in their principal goal: statistics draws
+population inferences from a sample, while machine learning finds
+generalizable predictive patterns.</p>
+<!-- https://machinelearningmastery.com/types-of-learning-in-machine-learning/ -->
+</section>
+<section id="types-of-machine-learning" class="slide level2">
+<h2>Types of machine learning</h2>
+<p>There are three main types of learning problems in machine learning:
+supervised, unsupervised, and reinforcement learning.</p>
+<h3 id="supervised-learning">Supervised learning</h3>
+<p>Supervised learning describes a type of problem that enables computer
+to learn a mapping between input examples and the target variable. The
+training data comes with the target variable that we want to predict, we
+call it labeled data.</p>
+<h4 id="classification">Classification</h4>
+<!-- https://scikit-learn.org/stable/tutorial/basic/tutorial.html#machine-learning-the-problem-setting -->
+<p>As for classification, its target variable is discrete. The target
+belongs to two or more classes and we want to learn from already labeled
+data how to predict the class of unlabeled data.</p>
+<p>An example of a classification problem would be handwritten digit
+recognition, in which the aim is to assign each input vector to one of a
+finite number of discrete categories.</p>
+<h4 id="regression">Regression</h4>
+<!-- https://scikit-learn.org/stable/tutorial/basic/tutorial.html#machine-learning-the-problem-setting -->
+<p>Regression’s target variable is continuous. An example of a
+regression problem would be the prediction of the length of a salmon as
+a function of its age and weight.</p>
+<h3 id="unsupervised-learning">Unsupervised learning</h3>
+<!-- https://scikit-learn.org/stable/tutorial/basic/tutorial.html#machine-learning-the-problem-setting -->
+<p>Unsupervised learning describes a type of problem that enables
+computer to describe or extract relationships in data. The training data
+is unlabelled data, i.e. there is no value of target variable in the
+training data.</p>
+<p>The goal in such problems may be - to discover groups of similar
+examples within the data, where it is called
+<strong>clustering</strong>, - to determine the distribution of data
+within the input space, known as <strong>density estimation</strong>, -
+to project the data from a high-dimensional space down to two or three
+dimensions, i.e. <strong>dimensionality reduction</strong></p>
+<h3 id="reinforcement-learning">Reinforcement learning</h3>
+<!-- https://machinelearningmastery.com/types-of-learning-in-machine-learning/ -->
+<p>Reinforcement learning describes a type of problem where an agent
+operates in an environment and must learn to operate using feedback.</p>
+<p>The use of an environment means that there is no fixed training
+dataset, rather a goal or set of goals that an agent is required to
+achieve, actions they may perform, and feedback about performance toward
+the goal.</p>
+<p>An example of reinforcement learning is Google’s AlphaGo.</p>
+<!-- https://github.com/esciencecenter-digital-skills/machine-learning-material/blob/main/notebooks/1-Intro.ipynb -->
+<p><strong>Exercise: Supervised or unsupervised</strong></p>
+<p>For the following problems, do you think you need a supervised or
+unsupervised approach?</p>
+<ul>
+<li>Find numerical representations for words in a language (word
+vectors) that contain semantic information on the word</li>
+<li>Determine whether a tumor is benign or malign, based on an
+MRI-scan</li>
+<li>Predict the age of a patient, based on an EEG-scan</li>
+<li>Cluster observations of plants into groups of individuals that have
+similar properties, possibly belonging to the same species</li>
+<li>Your own problem and dataset</li>
+</ul>
+</section>
+<section id="limitations-of-machine-learning" class="slide level2">
+<h2>Limitations of machine learning</h2>
+<!-- https://carpentries-incubator.github.io/machine-learning-novice-sklearn/01-introduction/index.html -->
+<h3 id="data">Data</h3>
+<p>Machine Learning requires massive data to train on. These data should
+be unbiased and of good quality, which are not easy to get in
+practice.</p>
+<h3 id="extrapolation">Extrapolation</h3>
+<p>We can only make reliable predictions about data which is in the same
+range as our training data. If we try to extrapolate beyond what was
+covered in the training data we’ll probably get wrong answers.</p>
+<h3 id="interpretation-of-results">Interpretation of Results</h3>
+<p>It’s a challenge to accurately interpret results generated by the
+algorithms. You have to carefully choose the algorithms for your
+purpose.</p>
+</section>
+<section id="machine-learning-glossary" class="slide level2">
+<h2>Machine learning glossary</h2>
+<p>Here are some resources about ML glossary -
+https://developers.google.com/machine-learning/glossary -
+https://scikit-learn.org/stable/glossary.html</p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
