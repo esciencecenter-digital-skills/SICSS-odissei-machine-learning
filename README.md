@@ -22,6 +22,14 @@ Day 2
 - Feature selection
 - Best practices
 
+## Technical Requirements
+A laptop with python 3.9 and the latest versions of the following dependencies:
+- scikit-learn
+- pandas
+- numpy
+- matplotlib
+- jupyter-notebook
+- jupyterlab
 
 ## Potential table of content
 
