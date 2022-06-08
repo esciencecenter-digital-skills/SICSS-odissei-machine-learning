@@ -4,6 +4,7 @@
 ## TOC 
 
 Day 1
+Morning
 - Introduction slides (1h)
 - NB1 (45min)
 - NB2 (30min)
@@ -11,16 +12,27 @@ Day 1
     - Decisiontree
     - Nearest neighbor
 - NB3 (45min)
+
+Afternoon
 - Theory on performance (20min)
 - NB4 (45min)
+- Apply skills to LISS
+- Presentation Joris Mulder
+
 
 Day 2
+Morning
 - Theory on regression (45min)
     - Linear regression
     - Neural net
 - NB5 (30min)
 - Feature selection
 - Best practices
+
+Afternoon
+- Apply to LISS data
+- Presentation Wouter van Atteveldt
+
 
 ## Technical Requirements
 A laptop with anaconda, python 3.9 and the latest versions of the following dependencies:
