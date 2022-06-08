@@ -23,7 +23,7 @@ Day 2
 - Best practices
 
 ## Technical Requirements
-A laptop with python 3.9 and the latest versions of the following dependencies:
+A laptop with anaconda, python 3.9 and the latest versions of the following dependencies:
 - scikit-learn
 - pandas
 - numpy
