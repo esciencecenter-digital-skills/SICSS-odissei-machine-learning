@@ -42,6 +42,7 @@ A laptop with anaconda, python 3.9 and the latest versions of the following depe
 - matplotlib
 - jupyter-notebook
 - jupyterlab
+- seaborn
 
 ## Potential table of content
 
