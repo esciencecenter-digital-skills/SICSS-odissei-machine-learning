@@ -45,10 +45,10 @@ For example,
 **The mathematical perspective:**
 
 The objective of ML is the function $f(x)$:
-$$ y = f(x) $$
+$$ \hat{y} = f(x) $$
 
 
-The learning is to apply specific algorithms (learning algorithms) to training data to get the exact form of the function $f(x)$. The learned function or model $f(x)$ can then be used to predict property $y$ for input data $x$.
+The learning is to apply specific algorithms (learning algorithms) to training data to get the exact form of the function $f(x)$. The learned function or model $f(x)$ can then be used to predict property $\hat{y}$ for input data $x$.
 
 The form of function $f(x)$ could be simple, e.g. linear function, or complex, e.g. non-linear function.
 
