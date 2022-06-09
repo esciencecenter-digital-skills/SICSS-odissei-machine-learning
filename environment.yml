@@ -1,11 +1,9 @@
-name: SICCSS
+name: SICSS
 dependencies:
-        - jupyter=1.0.0
-        - jupyterlab=3.4.3
-        - numpy=1.22.4
-        - pandas=1.4.2
-        - matplotlib=3.5.2
-        - scikit-learn=1.1.1
-        - seaborn=0.11.2
-
-
+  - jupyter=1.0.0
+  - jupyterlab=3.4.3
+  - numpy=1.22.4
+  - pandas=1.4.2
+  - matplotlib=3.5.2
+  - scikit-learn=1.1.1
+  - seaborn=0.11.2
