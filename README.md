@@ -26,7 +26,7 @@ Morning
     - Linear regression
     - Neural net
 - NB5 (30min)
-- Feature selection
+- NB6 - Feature selection
 - Best practices
 
 Afternoon
