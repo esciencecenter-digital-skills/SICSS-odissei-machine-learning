@@ -70,7 +70,7 @@ conda env create -f environment.yml
 
 Now activate this conda environment:
 ```bash
-conda activate 
+conda activate SICSS
 ```
 
 To check if your environment is running correclty, you can run our test script:
