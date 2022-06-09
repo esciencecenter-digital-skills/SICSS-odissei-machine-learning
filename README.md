@@ -73,6 +73,11 @@ Now activate this conda environment:
 conda activate 
 ```
 
+To check if your environment is running correclty, you can run our test script:
+```bash
+python check_setup.py
+```
+It should output `Your environment is has been correctly set up!` if it ran succesfully.
 
 ## Potential table of content
 

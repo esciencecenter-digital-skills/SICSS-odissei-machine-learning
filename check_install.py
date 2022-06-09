@@ -49,3 +49,5 @@ if __name__ == '__main__':
     test_matplotlib()
     test_seaborn()
     test_sklearn()
+    print('Your environment is has been correctly set up!')
+
