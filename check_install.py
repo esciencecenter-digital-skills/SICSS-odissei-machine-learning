@@ -40,4 +40,12 @@ def test_sklearn():
 
     model.fit(X, y)
 
-    np.testing.assert_array_almost_equal(model.coef_, [[2.0]])
+    np.testing.assert_array_almost_equal(model.coef_, [[2.0]], )
+
+
+if __name__ == '__main__':
+    test_numpy()
+    test_pandas()
+    test_matplotlib()
+    test_seaborn()
+    test_sklearn()
