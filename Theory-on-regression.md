@@ -63,6 +63,7 @@ The process of gradient descent for two features would look like the dynamic dia
 ### Model representation
 
 ![Neural network](image/Neural_network.png)
+
 The diagram demonstrates one hidden layer neural network.
 
 <!-- Text from https://scikit-learn.org/stable/modules/neural_networks_supervised.html#multi-layer-perceptron -->
