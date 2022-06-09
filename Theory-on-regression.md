@@ -68,16 +68,14 @@ The diagram demonstrates one hidden layer neural network.
 <!-- Text from https://scikit-learn.org/stable/modules/neural_networks_supervised.html#multi-layer-perceptron -->
 The input layer consists of a set of neurons representing the input features.
 
- Each neuron in the hidden layer transforms the values from the previous layer with a weighted linear summation $w_1x_1 + w_2x_2 + \cdots + w_nx_n$, followed by a non-linear activation function, e.g. the [logistic or sigmoid function](https://en.wikipedia.org/wiki/Sigmoid_function).
+ Each neuron in the hidden layer transforms the values from the previous layer with a weighted linear summation $w_1x_1 + w_2x_2 + \cdots + w_nx_n + bias$, followed by a non-linear activation function, e.g. the [logistic or sigmoid function](https://en.wikipedia.org/wiki/Sigmoid_function).
 
  The output layer receives the values from the last hidden layer and transforms them into output values with linear function.
 
-Neural network models look like what this diagram present, with more input features and more hidden layers.
-
-Want to play with presentation of neural network? Try https://alexlenail.me/NN-SVG/index.html.
+The neural network available in `scikit-learn` is just look like the architecture in the diagram, i.e. multi-layer perceptron. To use more complex neural network models, deep learning framework should be used, e.g. [PyTorch, Keras, TensorFlow, etc](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software). Want to have a look at various neural network models? Try https://alexlenail.me/NN-SVG/index.html.
 
 #### Activation function
-Various activation functions are available in `scikit-learn`, e.g. identity, logistic, tanh and relu. Take a look at [this table](https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions) to know more about these functions.
+[Activation function](https://en.wikipedia.org/wiki/Activation_function) is also called transfer function. Various activation functions are available in `scikit-learn`, e.g. identity, logistic, tanh and relu. Take a look at [this table](https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions) to know more about these functions.
 
 ![Activation functions](image/Activation_functions.png)
 <!-- Table is from https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions -->
