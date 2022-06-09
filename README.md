@@ -56,7 +56,7 @@ working setup.
 You will need to have  [anaconda](https://www.anaconda.com/) installed. The website will provide instructions for your
 operating system.
 
-Open a terminal, (command prompy or powershell on windows), and clone our setup git repo:
+Open a terminal, (conda prompt on windows), and clone our setup git repo:
 
 ```bash
 git clone https://github.com/esciencecenter-digital-skills/SICSS-setup.git
