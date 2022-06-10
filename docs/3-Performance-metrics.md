@@ -1,5 +1,6 @@
 ## Confusion matrix
 Suppose we have this confusion matrix:
+
 ![](../image/3.1-Confusion-matrix.png)
 
 Note that the majority class is "No BBQ".
@@ -9,12 +10,12 @@ It is a bit arbitrary which class you choose as positive, but generally speaking
 
 ## TP,TN,FP,FN
 Then we define:
-- **T**rue **P*ositives: Positive in reality, prediction positive
-- **T**rue **N*egatives: Negative in reality, prediction positive
-- **F**alse **P*ositives: Negative in reality, prediction positive
-- **F**alse **N*egatives: Positive in reality, prediction negative
+- **T**rue **P**ositives: Positive in reality, prediction positive
+- **T**rue **N**egatives: Negative in reality, prediction positive
+- **F**alse **P**ositives: Negative in reality, prediction positive
+- **F**alse **N**egatives: Positive in reality, prediction negative
 
-![](../image/3.2-Confusion-matrix-rates.jpg)
+![](../image/3.2-Confusion-matrix-rates.png)
 
 ## Accuracy, precision and recall
 *Accuracy* is the rate of correct predictions:
@@ -41,7 +42,9 @@ Often you want both precision and recall to be high. We can calculate the f1 sco
 
 ## Trade-off Precision/recall
 For most models, we do not just get the predicted class, but also an associated *score*. If the score is above a certain threshold, it assigns that class.
+
 ![](../image/3.3-scores-table.png)
+
 **Exercise**: what do you think happens with the precision and recall when we increase or decrease the threshold?
 
 ## Solution
@@ -49,4 +52,5 @@ If we **increase** the threshold, we get more strict: recall drops, precision ma
 If we **decrease** the threshold, our recall may increase but precision could drop.
 
 We can plot the precision and recall against the thresholds:
+
 ![](../image/3.4-precision-recall-graph.png)
