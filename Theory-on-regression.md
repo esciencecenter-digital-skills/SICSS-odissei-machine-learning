@@ -6,7 +6,7 @@ We learned in [Introduction section](1-intro.md) that regression is to predict c
 
 The model $f(x)$ can also be represented as $\hat{y}(w, x)$, where $x$ is input features and $w$ is weights or parameters.
 
-Machine learning is meant to choose proper weights $w$ with [optimization algorithm](https://en.wikipedia.org/wiki/Mathematical_optimization) (learning algorithm) so that the target $\hat{y}(w, x)$ is close to real values in training examples. The "error" or "cost" between real values and predicted values is presented with [loss function](https://en.wikipedia.org/wiki/Loss_function). Then the goal of machine learning becomes minimizing the "error", i.e. loss function $J(w)$, with respect to weights $w$:
+Machine learning is meant to choose proper weights $w$ with an [optimization algorithm](https://en.wikipedia.org/wiki/Mathematical_optimization) (learning algorithm) so that the target $\hat{y}(w, x)$ is close to real values in training examples. The "error" or "cost" between real values and predicted values is presented with [loss function](https://en.wikipedia.org/wiki/Loss_function). Then the goal of machine learning becomes minimizing the "error", i.e. loss function $J(w)$, with respect to weights $w$:
 
 $$ \color{red} \text{Goal:  } \underset{w}{\text{minimize }} J(w)$$
 
