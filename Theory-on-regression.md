@@ -19,13 +19,21 @@ Linear here means that the target value is expected to be a linear combination o
 
 ### Model representation
 
-The model of linear regression is
+Let's say we have house price as target value, and the house price is expected to be linearly increased with house area. Then we could use a linear model to capture this relationship, as shown in the diagram below:
+
+![linear-reg-one-variable](image/linear_reg_one_variable.png)
+
+This linear model could be represented as
+$$\hat{y}(w,x) = w_0 + w_1x_1$$
+
+Here $\hat{y}$ is the target value, i.e. house price,  we have only one input feature or variable $x_1$, i.e. house area, $w_0, w_1$ are the weights.
+
+Linear regression with one input feature is also called univariate linear regression.
+
+When we have more input features, e.g. number of bedrooms, area of balcony, construction year, etc., the model of linear regression becomes
 $$\hat{y}(w,x) = w_0 + w_1x_1 + w_2x_2 + \cdots + w_nx_n \$$
 where $\hat{y}$ is the target value, vector $X = (x_1, \cdots, x_n)$ are input features and $W = (w_0, \cdots, w_n)$ are weights. weight $w_0$ is also called intercept, and the other weights $(w_1, \cdots, w_n)$ are coefficients.
 
-If there is only one input feature, the model becomes
-$$\hat{y}(w,x) = w_0 + w_1x_1$$
-it's also called univariate linear regression.
 
 ### Loss function
 
