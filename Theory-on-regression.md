@@ -49,16 +49,9 @@ which is the sum of squares of the differences between real values $y$ and predi
 
 Now that we have defined a loss function, we want to choose the weights so that the loss is as small as possible. We do this with an **optimization algorithm**: an algorithm used to minimize the loss function, i.e. to keep changing weights $w$ to reduce loss $J(w)$ until it hopefully ends up at a minimum.
 
-The most basic and popular optimization algorithm is [gradient descent](https://en.wikipedia.org/wiki/Gradient_descent), also known as steepest descent. It can be described as below:
+The most basic and popular optimization algorithm is [gradient descent](https://en.wikipedia.org/wiki/Gradient_descent), also known as steepest descent.
 
-$$ \color{gray} \text{repeat until convergence: } \\
-     \color{black} w_i := w_i - \alpha\frac{\partial{}}{\partial{w}}J(w) \\
-    \color{gray}
-    \text{for } i = (0, \cdots, n) \\
-    \alpha \text{ is learning rate}
-$$
-
-The basic idea is to take repeated steps in the opposite direction of the gradient of the loss function, i.e. $\displaystyle -\frac{\partial{}}{\partial{w}}J(w)$, which will lead to a local minimum of loss function, as shown below.
+The basic idea is to take repeated steps in the opposite direction of the gradient of the loss function, i.e. $\displaystyle \nabla{_wJ} = \frac{\partial{}}{\partial{w}}J(w)$, which will lead to a local minimum of loss function, as shown below.
 
 ![Gradient descent 1D](image/Gradient-descent.png)
 <!-- Figure Gradient-descent.png from https://imaddabbura.github.io/img/gradient-descent-algorithms/gradients.PNG -->
@@ -66,6 +59,15 @@ The basic idea is to take repeated steps in the opposite direction of the gradie
 The process of gradient descent for two features would look like the dynamic diagram below:
 ![Gradient descent 2D dynamic](image/Gradient_descent_dynamic.gif)
 <!-- Figure Gradient_descent_dynamic.gif from https://blog.paperspace.com/intro-to-optimization-in-deep-learning-gradient-descent/ -->
+
+ As a reference, the gradient descent can be exactly described as below:
+
+$$ \color{gray} \text{repeat until convergence: } \\
+     \color{black} w_i := w_i - \alpha\frac{\partial{}}{\partial{w}}J(w) \\
+    \color{gray}
+    \text{for } i = (0, \cdots, n) \\
+    \alpha \text{ is learning rate}
+$$
 
 
 ## Neural network (non-linear regression)
