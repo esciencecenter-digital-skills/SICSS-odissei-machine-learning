@@ -37,7 +37,9 @@ where $\hat{y}$ is the target value, vector $X = (x_1, \cdots, x_n)$ are input f
 
 ### Loss function
 
-Loss function is to measure the "error" between real values and predicted values. For regression, it can be presented as the following form:
+Suppose we have a linear model with certain values for the weights. How well does this model capture the data that we observe?
+
+We can come up with a **loss function** that measures the "error" between real values and predicted values. For regression, we can for example calculate the squares of the differences between real and predicted points:
 
 $$ J(w) = ||y - \hat{y}||^2 $$
 
