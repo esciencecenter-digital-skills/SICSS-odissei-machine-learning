@@ -78,20 +78,35 @@ $$
 
 The diagram demonstrates one hidden layer neural network.
 
-<!-- Text from https://scikit-learn.org/stable/modules/neural_networks_supervised.html#multi-layer-perceptron -->
-The input layer consists of a set of neurons representing the input features.
+**The input layer** consists of a set of neurons representing the input features.
 
- Each neuron in the hidden layer transforms the values from the previous layer with a weighted linear summation $w_1x_1 + w_2x_2 + \cdots + w_nx_n + bias$, followed by a non-linear activation function, e.g. the [logistic or sigmoid function](https://en.wikipedia.org/wiki/Sigmoid_function).
+**The hidden layer**:
+<!-- Text and fig from https://github.com/carpentries-incubator/deep-learning-intro/blob/gh-pages/_episodes/01-introduction.md -->
 
- The output layer receives the values from the last hidden layer and transforms them into output values with linear function.
+Each neuron
+- has one or more inputs, e.g. input data expressed as floating point numbers
+- most of the time, each neuron conducts 3 main operations:
+  + take the weighted sum of the inputs
+  + add an extra constant weight (i.e. a bias term) to this weighted sum
+  + apply a non-linear function to the output so far (using a predefined activation function, e.g. the [logistic or sigmoid function](https://en.wikipedia.org/wiki/Sigmoid_function))
+- return one output value, again a floating point number
+
+![A diagram of a single artificial neuron](image/neuron.png)
+
+
+**The output layer** receives the values from the last hidden layer and transforms them into output values with linear function.
 
 The neural network available in `scikit-learn` is just look like the architecture in the diagram, i.e. multi-layer perceptron. To use more complex neural network models, deep learning framework should be used, e.g. [PyTorch, Keras, TensorFlow, etc](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software). Want to have a look at various neural network models? Try https://alexlenail.me/NN-SVG/index.html.
 
 #### Activation function
-[Activation function](https://en.wikipedia.org/wiki/Activation_function) is also called transfer function. Various activation functions are available in `scikit-learn`, e.g. identity, logistic, tanh and relu. Take a look at [this table](https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions) to know more about these functions.
+[Activation function](https://en.wikipedia.org/wiki/Activation_function) is also called transfer function. Commonly used non-linear activation functions `logistic`, `tanh` and `relu` are available in `scikit-learn`. In practice, use the default `relu` is good enough.
 
 ![Activation functions](image/Activation_functions.png)
 <!-- Table is from https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions -->
+
+#### Benefits and drawbacks of NN over linear regression
+
+The design of the neural network, with it's non-linearity and layers stacked on top of each other, allows for much more complex patterns to be detected than with linear regression. We can view the neurons as *feature detectors*, that retrieve relevant pieces of information from the input data. The flipside of the coin, is that often we need large amounts of training data to be able to learn these features.
 
 
 ### Loss function
@@ -99,11 +114,10 @@ Loss function can be shared by all regression models, so loss function $J(w) = |
 
 ### Optimization algorithms
 
- Neural network also use gradient descent as [optimization algorithm](https://scikit-learn.org/stable/modules/neural_networks_supervised.html#algorithms). More precisely, [stochastic gradient descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent)(SGD) is used.
+ Neural network also use gradient descent as [optimization algorithm](https://scikit-learn.org/stable/modules/neural_networks_supervised.html#algorithms).
 
- The difference of SGD with regular gradient descent is that SGD replaces the actual gradient (calculated from the entire training data) by an estimate (calculated from a randomly selected subset of the training data). More details about SGD can be found in [scikit-learn guide](https://scikit-learn.org/stable/modules/sgd.html).
+ More precisely, [stochastic gradient descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent)(SGD) is used. The difference of SGD with regular gradient descent is that SGD replaces the actual gradient (calculated from the entire training data) by an estimate (calculated from a randomly selected subset of the training data). More details about SGD can be found in [scikit-learn guide](https://scikit-learn.org/stable/modules/sgd.html).
 
-
-[Adam](https://en.wikipedia.org/wiki/Stochastic_gradient_descent#Adam)(Adaptive Moment Estimation) is also a stochastic optimizer, but it can automatically adjust the amount to update weights. It works great on large datasets (thousands of training samples or more) in terms of both training time and validation score, and `scikit-learn` use it as default.
+[Adam](https://en.wikipedia.org/wiki/Stochastic_gradient_descent#Adam)(Adaptive Moment Estimation) is also a stochastic optimizer, but it can automatically adjust the amount to update weights. It works great on large datasets (thousands of training samples or more) in terms of both training time and validation score, and `scikit-learn` use it as default. It's recommended to use `Adam` as the first choice in practice.
 
 [Backpropagation](https://en.wikipedia.org/wiki/Backpropagation) is not a optimization algorithm but a method to compute gradients for neural network. Then these gradients are used by optimization algorithm to update weights.
