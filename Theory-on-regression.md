@@ -47,7 +47,7 @@ which is the sum of squares of the differences between real values $y$ and predi
 
 ### Optimization algorithm
 
-Optimization algorithm is the algorithms used to minimize the loss function, i.e. to keep changing weights $w$ to reduce loss $J(w)$ until it hopefully ends up at a minimum.
+Now that we have defined a loss function, we want to choose the weights so that the loss is as small as possible. We do this with an **optimization algorithm**: an algorithm used to minimize the loss function, i.e. to keep changing weights $w$ to reduce loss $J(w)$ until it hopefully ends up at a minimum.
 
 The most basic and popular optimization algorithm is [gradient descent](https://en.wikipedia.org/wiki/Gradient_descent), also known as steepest descent. It can be described as below:
 
