@@ -31,6 +31,10 @@ title: Best Practices on Conducting ML Projects
 :::incremental
 - Be patient with data engineering
 - Split data to training, evaluation and test datasets
+- NEVER mix using data:
+  - training data only for training
+  - evaluation data only for evaluation
+  - test data only for test
 - Use common-sense features
 - Borrow features from state-of-art models
 :::
