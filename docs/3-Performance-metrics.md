@@ -11,7 +11,7 @@ It is a bit arbitrary which class you choose as positive, but generally speaking
 ## TP,TN,FP,FN
 Then we define:
 - **T**rue **P**ositives: Positive in reality, prediction positive
-- **T**rue **N**egatives: Negative in reality, prediction positive
+- **T**rue **N**egatives: Negative in reality, prediction negative
 - **F**alse **P**ositives: Negative in reality, prediction positive
 - **F**alse **N**egatives: Positive in reality, prediction negative
 
