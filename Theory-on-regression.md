@@ -69,6 +69,19 @@ $$ \color{gray} \text{repeat until convergence: } \\
     \alpha \text{ is learning rate}
 $$
 
+## Ensemble methods
+Decision trees, as we were introduced for classification, can also be used for regression. We assign the *mean* of the scores of the items in a leaf. 
+However, we also saw that decision trees are prone to overfitting. Small variations in the data lead to completely different trees.
+
+### Random forest
+A forest is a collection of trees. Each of the trees is trained on a random sample of *features* and a random sample of *data items*. The prediction is the *average* of all individual predictions.
+
+This makes the model more robust than a single tree.
+
+### Boosting
+There are also other types of 'ensemble models'. In *boosting*, you give more weight to data points that were difficult to predict by previous models in the ensemble.
+
+**Tip**: look into the `HistGradientBoostingClassifier` and `HistGradientBoostingRegressor` in sklearn. They are fast, handle missing data automatically and often work well! 
 
 ## Neural network (non-linear regression)
 
