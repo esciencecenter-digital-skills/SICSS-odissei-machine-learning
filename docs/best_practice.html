@@ -7,12 +7,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reset.css">
   <link rel="stylesheet" href="reveal.js/css/reveal.css">
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
   <link rel="stylesheet" href="docs/style.css"/>
@@ -36,7 +39,12 @@
   <h1 class="title">Best Practices on Conducting ML Projects</h1>
 </section>
 
-<section><section id="before-starting-a-machine-learning-project" class="title-slide slide level1"><h1>Before starting a machine learning project</h1></section><section id="ask-yourself" class="slide level2">
+<section>
+<section id="before-starting-a-machine-learning-project" class="title-slide slide level1">
+<h1>Before starting a machine learning project</h1>
+
+</section>
+<section id="ask-yourself" class="slide level2">
 <h2>Ask yourself</h2>
 <div>
 <ul>
@@ -48,7 +56,8 @@
 <li class="fragment">Do you really have to use machine learning?</li>
 </ul>
 </div>
-</section><section id="continue-asking" class="slide level2">
+</section>
+<section id="continue-asking" class="slide level2">
 <h2>Continue asking…</h2>
 <div>
 <ul>
@@ -62,7 +71,12 @@
 </ul>
 </div>
 </section></section>
-<section><section id="during-doing-machine-learning" class="title-slide slide level1"><h1>During doing machine learning</h1></section><section id="pipeline-or-workflow" class="slide level2">
+<section>
+<section id="during-doing-machine-learning" class="title-slide slide level1">
+<h1>During doing machine learning</h1>
+
+</section>
+<section id="pipeline-or-workflow" class="slide level2">
 <h2>Pipeline or workflow</h2>
 <ul>
 <li>Having a bad pipeline is better than nothing
@@ -70,7 +84,8 @@
 <li>Make one and optimize it</li>
 </ul></li>
 </ul>
-</section><section id="data" class="slide level2">
+</section>
+<section id="data" class="slide level2">
 <h2>Data</h2>
 <div>
 <ul>
@@ -86,7 +101,8 @@
 <li class="fragment">Borrow features from state-of-art models</li>
 </ul>
 </div>
-</section><section id="model" class="slide level2">
+</section>
+<section id="model" class="slide level2">
 <h2>Model</h2>
 <div>
 <ul>
@@ -102,12 +118,18 @@
 </ul>
 </div>
 </section></section>
-<section><section id="after-training" class="title-slide slide level1"><h1>After training</h1></section><section id="versioning" class="slide level2">
+<section>
+<section id="after-training" class="title-slide slide level1">
+<h1>After training</h1>
+
+</section>
+<section id="versioning" class="slide level2">
 <h2>Versioning</h2>
 <ul>
 <li>Version your data, code and everything</li>
 </ul>
-</section><section id="re-train" class="slide level2">
+</section>
+<section id="re-train" class="slide level2">
 <h2>Re-train</h2>
 <ul>
 <li>Retrain the model when possible
@@ -119,7 +141,6 @@
     </div>
   </div>
 
-  <script src="reveal.js/lib/js/head.min.js"></script>
   <script src="reveal.js/js/reveal.js"></script>
 
   <script>

@@ -7,12 +7,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reset.css">
   <link rel="stylesheet" href="reveal.js/css/reveal.css">
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
   <link rel="stylesheet" href="docs/style.css"/>
@@ -36,36 +39,48 @@
   <h1 class="title">Performance metrics</h1>
 </section>
 
-<section><section id="performance-metrics" class="title-slide slide level1"><h1>Performance metrics</h1></section><section id="confusion-matrix" class="slide level2">
+<section>
+<section id="performance-metrics" class="title-slide slide level1">
+<h1>Performance metrics</h1>
+
+</section>
+<section id="confusion-matrix" class="slide level2">
 <h2>Confusion matrix</h2>
 <p>Suppose we have this confusion matrix:</p>
 <p><img data-src="../image/3.1-Confusion-matrix.png" /></p>
 <p>Note that the majority class is “No BBQ”.</p>
 <p>In machine learning jargon, when we have binary classification we speak about ‘positive’ and ‘negative’ classes. It is a bit arbitrary which class you choose as positive, but generally speaking it’s the class you’re most interested in to predict well. We are interested in nice BBQ weather, so this is our ‘positive’ class.</p>
-</section><section id="tptnfpfn" class="slide level2">
+</section>
+<section id="tptnfpfn" class="slide level2">
 <h2>TP,TN,FP,FN</h2>
 <p>Then we define: - <strong>T</strong>rue <strong>P</strong>ositives: Positive in reality, prediction positive - <strong>T</strong>rue <strong>N</strong>egatives: Negative in reality, prediction negative - <strong>F</strong>alse <strong>P</strong>ositives: Negative in reality, prediction positive - <strong>F</strong>alse <strong>N</strong>egatives: Positive in reality, prediction negative</p>
 <p><img data-src="../image/3.2-Confusion-matrix-rates.png" /></p>
-</section><section id="accuracy" class="slide level2">
+</section>
+<section id="accuracy" class="slide level2">
 <h2>Accuracy</h2>
 <p><em>Accuracy</em> is the rate of correct predictions: <code>acc = (TP+TN) / (TP+TN+FN+FP)</code>.</p>
 <p>In our case: <code>acc = (70 + 15) / 100 = 0.85</code> Note that this score gets skewed by the majority class!</p>
-</section><section id="precision-and-recall" class="slide level2">
+</section>
+<section id="precision-and-recall" class="slide level2">
 <h2>Precision and recall</h2>
 <p>If we look from the perspective of the ‘positive’ class, we can define: - Precision: How many of the predicted BBQ days can we truly fire our BBQ? - Recall: How many of the true BBQ days were predicted by the model?</p>
 <p>In math: - <code>prec = TP / (TP + FP) = 15 / (15+10) = 0.6</code> - <code>rec = TP / (TP + FN) = 15 / (15+5) = 0.75</code> Note how these scores are lower than the precision. The model is not doing so well on our class of interest.</p>
-</section><section id="f1" class="slide level2">
+</section>
+<section id="f1" class="slide level2">
 <h2>f1</h2>
 <p>Often you want both precision and recall to be high. We can calculate the f1 score: <code>f1 = 2 x precision x recall / (precision + recall)</code></p>
 <p>(Note: this is a ‘harmonic mean’, which gives more weight to low values compared to regular mean. so it’s only high when both values are high).</p>
-</section><section id="trade-off-precisionrecall" class="slide level2">
+</section>
+<section id="trade-off-precisionrecall" class="slide level2">
 <h2>Trade-off Precision/recall</h2>
 <p>For most models, we do not just get the predicted class, but also an associated <em>score</em>. If the score is above a certain threshold, it assigns that class.</p>
 <p><img data-src="../image/3.3-scores-table.png" /></p>
-</section><section id="exercise" class="slide level2">
+</section>
+<section id="exercise" class="slide level2">
 <h2>Exercise</h2>
 <p><strong>Exercise</strong>: what do you think happens with the precision and recall when we increase or decrease the threshold?</p>
-</section><section id="solution" class="slide level2">
+</section>
+<section id="solution" class="slide level2">
 <h2>Solution</h2>
 <p>If we <strong>increase</strong> the threshold, we get more strict: recall drops, precision may improve (if our model does well). If we <strong>decrease</strong> the threshold, our recall may increase but precision could drop.</p>
 <p>We can plot the precision and recall against the thresholds:</p>
@@ -74,7 +89,6 @@
     </div>
   </div>
 
-  <script src="reveal.js/lib/js/head.min.js"></script>
   <script src="reveal.js/js/reveal.js"></script>
 
   <script>
