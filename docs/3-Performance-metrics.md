@@ -1,6 +1,7 @@
 ---
 title: Performance metrics
 ---
+# This is a test
 
 # Performance metrics
 
