@@ -1,5 +1,11 @@
+---
+title: Introduction to machine learning
+---
+
 <!-- Author: Cunliang Geng -->
 <!-- Note: the commented lines are reference material -->
+
+
 
 - [Introduction to machine learning](#introduction-to-machine-learning)
   - [What is machine learning](#what-is-machine-learning)
@@ -54,13 +60,13 @@ The form of function $f(x)$ could be simple, e.g. linear function, or complex, e
 
 <!-- fig1.1 adapted from https://www.coursera.org/learn/machine-learning  -->
 
-![ML-objective](image/1.1-ML-objective.png)
+![ML-objective](../image/1.1-ML-objective.png)
 
 ## Machine learning and artificial intelligence
 
 <!-- fig1.2 adapted from book of Wu, Jun. The Beauty of Mathematics in Computer Science. -->
 <!-- https://www.ibm.com/cloud/learn/what-is-artificial-intelligence -->
-![ML-AI](image/1.2-ML-AI.png)
+![ML-AI](../image/1.2-ML-AI.png)
 
 Let's treat all problems in the universe as a set. This set can be divided to mathematical problems and other problems (e.g. love problems, moral and ethical problems, cultural conflict problems and so on).
 
@@ -75,7 +81,7 @@ ML is comprised of classical algorithms and deep learning (DL) algorithms. Class
 
 Deep learning is a specific group of algorithms that are based on artificial neural networks. “Deep” in deep learning refers to a neural network comprised of more than three layers, which would be inclusive of the inputs and the output.
 
-![Deep learning](image/1.3-DL.png)
+![Deep learning](../image/1.3-DL.png)
 
 <!-- https://www.ibm.com/cloud/learn/what-is-artificial-intelligence -->
 Classical ML algorithms and DL differ in how each algorithm learns. Deep learning automates much of the feature extraction piece of the process, eliminating some of the manual human intervention required and enabling the use of larger data sets. Classical machine learning is more dependent on human intervention to learn. Human experts determine the hierarchy of features to understand the differences between data inputs, usually requiring more structured data to learn.
