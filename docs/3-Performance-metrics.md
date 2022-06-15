@@ -1,10 +1,11 @@
 ---
 title: Performance metrics
 ---
-# This is a test
-bla bla
 
 # Performance metrics
+
+## Test slide
+This slide is for testing
 
 ## Confusion matrix
 
