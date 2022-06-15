@@ -2,6 +2,7 @@
 title: Performance metrics
 ---
 # This is a test
+bla
 
 # Performance metrics
 
