@@ -25,8 +25,8 @@ jobs:
       - name: install prerequisites
         run: |
           sudo apt update
-          wget https://github.com/jgm/pandoc/releases/download/2.9.2.1/pandoc-2.9.2.1-1-amd64.deb
-          sudo apt-get install ./pandoc-2.9.2.1-1-amd64.deb
+          wget https://github.com/jgm/pandoc/releases/download/2.18/pandoc-2.18-1-amd64.deb
+          sudo apt-get install ./pandoc-2.18-1-amd64.deb
           npm install reveal.js
 
       - name: Generate presentations
