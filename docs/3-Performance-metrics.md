@@ -4,9 +4,6 @@ title: Performance metrics
 
 # Performance metrics
 
-## Test slide
-This slide is for testing
-
 ## Confusion matrix
 
 Suppose we have this confusion matrix:
