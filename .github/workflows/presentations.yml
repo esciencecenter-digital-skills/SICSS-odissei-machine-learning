@@ -28,7 +28,9 @@ jobs:
           sudo apt install pandoc
 
       - name: Generate presentations
-        run: make
+        run: |
+          make clean
+          make
 
       - name: Commit presentations
         uses: stefanzweifel/git-auto-commit-action@v4

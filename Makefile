@@ -13,3 +13,6 @@ presentations: ${HTML}
 
 index: presentations
 	cd docs;	tree -H '.' -L 1 --noreport --charset utf-8 -o index.html
+
+clean:
+	rm -rf ${HTML}
