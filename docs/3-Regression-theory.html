@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Regression theory</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/black.css" id="theme">
+  <link rel="stylesheet" href="docs/style.css"/>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Regression theory</h1>
+</section>
+
+<section>
+<section id="intro" class="title-slide slide level1">
+<h1>Intro</h1>
+
+</section>
+<section id="ml-goal" class="slide level2">
+<h2>ML Goal</h2>
+<p><img data-src="image/1.1-ML-objective.png" height="300" /></p>
+<p><span
+class="math display"><em>f</em>(<em>x</em>) = <em>ŷ</em>(<em>w</em>,<em>x</em>)</span></p>
+<ul>
+<li><span class="math inline"><em>x</em></span> is input features</li>
+<li><span class="math inline"><em>w</em></span> is weights or
+parameters</li>
+</ul>
+<aside class="notes">
+<p>We learned in <a href="1-introduction.md">Introduction section</a>
+that regression is to predict continuous values, and the objective of
+machine learning is the function or model <span
+class="math inline"><em>f</em>(<em>x</em>)</span>, as shown in figure
+below.</p>
+<p>The model <span class="math inline"><em>f</em>(<em>x</em>)</span> can
+also be represented as <span
+class="math inline"><em>ŷ</em>(<em>w</em>,<em>x</em>)</span>, where
+<span class="math inline"><em>x</em></span> is input features and <span
+class="math inline"><em>w</em></span> is weights or parameters.</p>
+</aside>
+</section>
+<section class="slide level2">
+
+<p>ML is meant to</p>
+<ul>
+<li><p>choose proper weights <span class="math inline"><em>w</em></span>
+with an <a
+href="https://en.wikipedia.org/wiki/Mathematical_optimization">optimization
+algorithm</a> (learning algorithm)</p></li>
+<li><p>so that the target <span
+class="math inline"><em>ŷ</em>(<em>w</em>,<em>x</em>)</span> is close to
+real values in training data</p></li>
+<li><p>the “error” or “cost” between real values and predicted values is
+presented with <a
+href="https://en.wikipedia.org/wiki/Loss_function">loss
+function</a></p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>Then ML goal becomes</p>
+<p><strong>minimizing loss function <span
+class="math inline"><em>J</em>(<em>w</em>)</span></strong></p>
+<p>with respect to weights <span
+class="math inline"><em>w</em></span></p>
+</section>
+<section class="slide level2">
+
+<p>We’ll learn</p>
+<ul>
+<li>Ordinary least squares (linear regression)</li>
+<li>Neural network (non-linear regression)</li>
+<li>Loss function and optimization algorithms</li>
+</ul>
+<aside class="notes">
+<p>In this section, we’ll learn two regression model — the ordinary
+least squares for linear regression and neural network for non-linear
+regression — as well as related loss function and optimization
+algorithms.</p>
+</aside>
+</section></section>
+<section>
+<section id="ordinary-least-squares-linear-regression"
+class="title-slide slide level1">
+<h1>Ordinary Least Squares (linear regression)</h1>
+
+</section>
+<section id="model-representation" class="slide level2">
+<h2>Model representation</h2>
+<p><img data-src="image/3.1-linear-reg-one-variable.png"
+height="300" /></p>
+<div class="fragment">
+<p>This linear model could be represented as <span
+class="math display"><em>ŷ</em>(<em>w</em>,<em>x</em>) = <em>w</em><sub>0</sub> + <em>w</em><sub>1</sub><em>x</em><sub>1</sub></span></p>
+</div>
+<div class="fragment">
+<p>Linear regression with one input feature: <em>univariate linear
+regression</em></p>
+</div>
+<aside class="notes">
+<p>Linear here means that the target value is expected to be a linear
+combination of the input features.</p>
+<p>Let’s say we have house price as target value, and the house price is
+expected to be linearly increased with house area. Then we could use a
+linear model to capture this relationship, as shown in the diagram.</p>
+<p>Here <span class="math inline"><em>ŷ</em></span> is the target value,
+i.e. house price, we have only one input feature or variable <span
+class="math inline"><em>x</em><sub>1</sub></span>, i.e. house area,
+<span
+class="math inline"><em>w</em><sub>0</sub>, <em>w</em><sub>1</sub></span>
+are the weights.</p>
+<p>Linear regression with one input feature is also called univariate
+linear regression.</p>
+</aside>
+</section>
+<section class="slide level2">
+
+<p>When we have more input features, e.g. number of bedrooms, area of
+balcony, construction year, etc.</p>
+<div class="fragment">
+<p>The model becomes <span
+class="math display"><em>ŷ</em>(<em>w</em>,<em>x</em>) = <em>w</em><sub>0</sub> + <em>w</em><sub>1</sub><em>x</em><sub>1</sub> + <em>w</em><sub>2</sub><em>x</em><sub>2</sub> + ⋯ + <em>w</em><sub><em>n</em></sub><em>x</em><sub><em>n</em></sub></span></p>
+</div>
+<div class="fragment">
+<ul>
+<li><span class="math inline"><em>ŷ</em></span> is the target value</li>
+<li><span
+class="math inline"><em>X</em> = (<em>x</em><sub>1</sub>,⋯,<em>x</em><sub><em>n</em></sub>)</span>
+are input features</li>
+<li><span
+class="math inline"><em>W</em> = (<em>w</em><sub>0</sub>,⋯,<em>w</em><sub><em>n</em></sub>)</span>
+are weights
+<ul>
+<li>weight <span class="math inline"><em>w</em><sub>0</sub></span> is
+also called intercept</li>
+<li>and the other weights <span
+class="math inline">(<em>w</em><sub>1</sub>,⋯,<em>w</em><sub><em>n</em></sub>)</span>
+are coefficients.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="loss-function" class="slide level2">
+<h2>Loss function</h2>
+<p>We have a linear model with certain values for the weights. How well
+does this model capture the data that we observe?</p>
+<div class="fragment">
+<p>We could use loss function</p>
+<p><span
+class="math display"><em>J</em>(<em>w</em>) = ||<em>y</em> − <em>ŷ</em>||<sup>2</sup></span></p>
+<p>the sum of squares of the differences between real values <span
+class="math inline"><em>y</em></span> and predicted values <span
+class="math inline"><em>ŷ</em></span></p>
+</div>
+<aside class="notes">
+<p>We can come up with a <strong>loss function</strong> that measures
+the “error” between real values and predicted values.</p>
+<p>For regression, we can for example calculate the squares of the
+differences between real and predicted points</p>
+</aside>
+</section>
+<section id="optimization-algorithm" class="slide level2">
+<h2>Optimization algorithm</h2>
+<p>Do you still remember the ML goal?</p>
+<div class="fragment">
+<p><strong>minimize loss function <span
+class="math inline"><em>J</em>(<em>w</em>)</span></strong></p>
+</div>
+<div class="fragment">
+<p>This is done by <strong>optimization algorithm</strong>:</p>
+<p>keep changing weights <span class="math inline"><em>w</em></span> to
+reduce loss <span class="math inline"><em>J</em>(<em>w</em>)</span>
+until it hopefully ends up at a minimum</p>
+</div>
+<aside class="notes">
+<p>Now that we have defined a loss function, we want to choose the
+weights so that the loss is as small as possible.</p>
+<p>We do this with an <strong>optimization algorithm</strong>: an
+algorithm used to minimize the loss function,</p>
+<p>i.e. to keep changing weights <span
+class="math inline"><em>w</em></span> to reduce loss <span
+class="math inline"><em>J</em>(<em>w</em>)</span> until it hopefully
+ends up at a minimum.</p>
+</aside>
+</section>
+<section class="slide level2">
+
+<p><a href="https://en.wikipedia.org/wiki/Gradient_descent">Gradient
+Descent</a></p>
+<p><img data-src="image/3.2-Gradient-descent.png"
+alt="Gradient descent 1D" />
+<!-- Figure Gradient-descent.png from https://imaddabbura.github.io/img/gradient-descent-algorithms/gradients.PNG --></p>
+<aside class="notes">
+<p>The most basic and popular optimization algorithm is <a
+href="https://en.wikipedia.org/wiki/Gradient_descent">gradient
+descent</a>, also known as steepest descent.</p>
+<p>The basic idea is to take repeated steps in the opposite direction of
+the gradient of the loss function, i.e. <span
+class="math inline">$\displaystyle \nabla{_wJ} =
+\frac{\partial{}}{\partial{w}}J(w)$</span>, which will lead to a local
+minimum of loss function, as shown below.</p>
+</aside>
+</section>
+<section class="slide level2">
+
+<p>Gradient descent for two features: <img
+data-src="image/3.3-Gradient-descent-dynamic.gif"
+alt="Gradient descent 2D dynamic" />
+<!-- Figure Gradient_descent_dynamic.gif from https://blog.paperspace.com/intro-to-optimization-in-deep-learning-gradient-descent/ --></p>
+<aside class="notes">
+<p>As a reference, the gradient descent can be exactly described as
+below:</p>
+<p><span class="math display">$$ \color{gray} \text{repeat until
+convergence: } \\
+     \color{black} w_i := w_i - \alpha\frac{\partial{}}{\partial{w}}J(w)
+\\
+    \color{gray}
+    \text{for } i = (0, \cdots, n) \\
+    \alpha \text{ is learning rate}
+$$</span></p>
+</aside>
+</section>
+<section id="summary" class="slide level2">
+<h2>Summary:</h2>
+<p>Linear regression</p>
+<ul>
+<li>Model presentation: <span
+class="math inline"><em>ŷ</em>(<em>w</em>,<em>x</em>) = <em>w</em><sub>0</sub> + <em>w</em><sub>1</sub><em>x</em><sub>1</sub> + ⋯ + <em>w</em><sub><em>n</em></sub><em>x</em><sub><em>n</em></sub></span></li>
+<li>Loss function: <span
+class="math inline"><em>J</em>(<em>w</em>) = ||<em>y</em> − <em>ŷ</em>||<sup>2</sup></span></li>
+<li>Optimization algorithm: Gradient Descent</li>
+</ul>
+</section></section>
+<section>
+<section id="neural-network-non-linear-regression"
+class="title-slide slide level1">
+<h1>Neural network (non-linear regression)</h1>
+
+</section>
+<section id="model-representation-1" class="slide level2">
+<h2>Model representation</h2>
+<figure>
+<img data-src="image/3.4-Neural-network.png" height="500"
+alt="Neural network" />
+<figcaption aria-hidden="true">Neural network</figcaption>
+</figure>
+<aside class="notes">
+<p>The diagram demonstrates one hidden layer neural network.</p>
+<p><strong>The input layer</strong> consists of a set of neurons
+representing the input features.</p>
+<p><strong>The output layer</strong> receives the values from the last
+hidden layer and transforms them into output values with linear
+function.</p>
+</aside>
+</section>
+<section class="slide level2">
+
+<h3 id="hidden-layer">Hidden layer</h3>
+<figure>
+<img data-src="image/3.5-neuron.png" alt="Single neutron" />
+<figcaption aria-hidden="true">Single neutron</figcaption>
+</figure>
+<aside class="notes">
+<!-- Text and fig from https://github.com/carpentries-incubator/deep-learning-intro/blob/gh-pages/_episodes/01-introduction.md -->
+<p>Each neuron - has one or more inputs, e.g. input data expressed as
+floating point numbers - most of the time, each neuron conducts 3 main
+operations: + take the weighted sum of the inputs + add an extra
+constant weight (i.e. a bias term) to this weighted sum + apply a
+non-linear function to the output so far (using a predefined activation
+function, e.g. the <a
+href="https://en.wikipedia.org/wiki/Sigmoid_function">logistic or
+sigmoid function</a>) - return one output value, again a floating point
+number</p>
+</aside>
+</section>
+<section class="slide level2">
+
+<h3 id="activation-function">Activation function</h3>
+<p><img data-src="image/3.6-Activation-functions.png"
+alt="Activation functions" />
+<!-- Table is from https://en.wikipedia.org/wiki/Activation_function#Table_of_activation_functions --></p>
+<aside class="notes">
+<p><a
+href="https://en.wikipedia.org/wiki/Activation_function">Activation
+function</a> is also called transfer function. Commonly used non-linear
+activation functions <code>logistic</code>, <code>tanh</code> and
+<code>relu</code> are available in <code>scikit-learn</code>. In
+practice, use the default <code>relu</code> is good enough.</p>
+</aside>
+</section>
+<section class="slide level2">
+
+<h3 id="nn-v.s.-linear-regression">NN v.s. linear regression</h3>
+<p>The design of the neural network, with it’s non-linearity and layers
+stacked on top of each other, allows for much more complex patterns to
+be detected than with linear regression.</p>
+<p>We can view the neurons as <em>feature detectors</em>, that retrieve
+relevant pieces of information from the input data.</p>
+<p>The flipside of the coin, is that often we need large amounts of
+training data to be able to learn these features.</p>
+</section>
+<section class="slide level2">
+
+<h3 id="deep-learning-frameworks">Deep learning frameworks</h3>
+<p>The NN available in <code>scikit-learn</code> just look like the
+architecture in the previous diagram.</p>
+<p>To use more complex NN, other framework should be used, e.g. <a
+href="https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software">PyTorch,
+Keras, TensorFlow, etc</a>.</p>
+<div class="fragment">
+<p>Want to have a look at various NN models? Try <a
+href="https://alexlenail.me/NN-SVG/index.html">plot NN</a></p>
+</div>
+</section>
+<section id="loss-function-1" class="slide level2">
+<h2>Loss function</h2>
+<p>Loss function can be shared by all regression models</p>
+<p><span
+class="math display"><em>J</em>(<em>w</em>) = ||<em>y</em> − <em>ŷ</em>||<sup>2</sup></span></p>
+</section>
+<section id="optimization-algorithms" class="slide level2">
+<h2>Optimization algorithms</h2>
+<aside class="notes">
+<p>Neural network also use gradient descent as <a
+href="https://scikit-learn.org/stable/modules/neural_networks_supervised.html#algorithms">optimization
+algorithm</a>.</p>
+<p>More details about SGD can be found in <a
+href="https://scikit-learn.org/stable/modules/sgd.html">scikit-learn
+guide</a>.</p>
+</aside>
+<p><a
+href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent">Stochastic
+Gradient Descent</a>(SGD)</p>
+<p>The difference of SGD with regular gradient descent is that SGD
+replaces the actual gradient (calculated from the entire training data)
+by an estimate (calculated from a randomly selected subset of the
+training data)</p>
+</section>
+<section class="slide level2">
+
+<p><a
+href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent#Adam">Adam</a>(Adaptive
+Moment Estimation)</p>
+<ul>
+<li>also a stochastic optimizer</li>
+<li>but it can automatically adjust the amount to update weights. It
+works great on large datasets (thousands of training samples or more) in
+terms of both training time and validation score,</li>
+<li>It’s recommended to use <code>Adam</code> as the first choice in
+practice</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p><a
+href="https://en.wikipedia.org/wiki/Backpropagation">Backpropagation</a></p>
+<ul>
+<li>not a optimization algorithm</li>
+<li>but a method to compute gradients for neural network. Then these
+gradients are used by optimization algorithm to update weights.</li>
+</ul>
+</section>
+<section id="summary-1" class="slide level2">
+<h2>Summary:</h2>
+<p>Neural network</p>
+<ul>
+<li>Model presentation</li>
+<li>Loss function: <span
+class="math inline"><em>J</em>(<em>w</em>) = ||<em>y</em> − <em>ŷ</em>||<sup>2</sup></span></li>
+<li>Optimization algorithm: SGD, ADAM</li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

@@ -57,3 +57,5 @@ title: Best Practices on Conducting ML Projects
 ## Re-train
 - Retrain the model when possible
   - e.g. more new data
+
+# Thanks, Q&A
