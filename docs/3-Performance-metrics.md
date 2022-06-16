@@ -1,3 +1,7 @@
+---
+title: Performance metrics
+---
+
 # Performance metrics
 
 ## Confusion matrix
