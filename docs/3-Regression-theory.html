@@ -19,16 +19,15 @@
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
   </style>
-  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/black.css" id="theme">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/white.css" id="theme">
   <link rel="stylesheet" href="docs/style.css"/>
 </head>
 <body>
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide">
+<section id="title-slide" data-background-image="image/e-title.png" data-background-size="contain">
   <h1 class="title">Regression theory</h1>
 </section>
 
@@ -40,54 +39,53 @@
 <section id="ml-goal" class="slide level2">
 <h2>ML Goal</h2>
 <p><img data-src="image/1.1-ML-objective.png" height="300" /></p>
-<p><span
-class="math display"><em>f</em>(<em>x</em>) = <em>ŷ</em>(<em>w</em>,<em>x</em>)</span></p>
+<p><span class="math display">\[ f(x) = \hat{y}(w, x) \]</span></p>
 <ul>
-<li><span class="math inline"><em>x</em></span> is input features</li>
-<li><span class="math inline"><em>w</em></span> is weights or
-parameters</li>
+<li><span class="math inline">\(x\)</span> is input features</li>
+<li><span class="math inline">\(w\)</span> is weights or parameters</li>
 </ul>
 <aside class="notes">
 <p>We learned in <a href="1-introduction.md">Introduction section</a>
 that regression is to predict continuous values, and the objective of
 machine learning is the function or model <span
-class="math inline"><em>f</em>(<em>x</em>)</span>, as shown in figure
-below.</p>
-<p>The model <span class="math inline"><em>f</em>(<em>x</em>)</span> can
-also be represented as <span
-class="math inline"><em>ŷ</em>(<em>w</em>,<em>x</em>)</span>, where
-<span class="math inline"><em>x</em></span> is input features and <span
-class="math inline"><em>w</em></span> is weights or parameters.</p>
+class="math inline">\(f(x)\)</span>, as shown in figure below.</p>
+<p>The model <span class="math inline">\(f(x)\)</span> can also be
+represented as <span class="math inline">\(\hat{y}(w, x)\)</span>, where
+<span class="math inline">\(x\)</span> is input features and <span
+class="math inline">\(w\)</span> is weights or parameters.</p>
 </aside>
 </section>
 <section class="slide level2">
 
 <p>ML is meant to</p>
 <ul>
-<li><p>choose proper weights <span class="math inline"><em>w</em></span>
-with an <a
+<li>make the target <span class="math inline">\(\hat{y}(w, x)\)</span>
+as close as possible to real values in training data</li>
+<li>by choosing proper weights <span class="math inline">\(w\)</span>
+<ul>
+<li>with <a
 href="https://en.wikipedia.org/wiki/Mathematical_optimization">optimization
-algorithm</a> (learning algorithm)</p></li>
-<li><p>so that the target <span
-class="math inline"><em>ŷ</em>(<em>w</em>,<em>x</em>)</span> is close to
-real values in training data</p></li>
-<li><p>the “error” or “cost” between real values and predicted values is
+algorithm</a> (learning algorithm)</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li>the “error” or “cost” between real values and predicted values is
 presented with <a
 href="https://en.wikipedia.org/wiki/Loss_function">loss
-function</a></p></li>
+function</a></li>
 </ul>
+</div>
 </section>
 <section class="slide level2">
 
 <p>Then ML goal becomes</p>
 <p><strong>minimizing loss function <span
-class="math inline"><em>J</em>(<em>w</em>)</span></strong></p>
-<p>with respect to weights <span
-class="math inline"><em>w</em></span></p>
+class="math inline">\(J(w)\)</span></strong></p>
+<p>with respect to weights <span class="math inline">\(w\)</span></p>
 </section>
-<section class="slide level2">
-
-<p>We’ll learn</p>
+<section id="well-learn" class="slide level2">
+<h2>We’ll learn</h2>
 <ul>
 <li>Ordinary least squares (linear regression)</li>
 <li>Neural network (non-linear regression)</li>
@@ -111,25 +109,19 @@ class="title-slide slide level1">
 <p><img data-src="image/3.1-linear-reg-one-variable.png"
 height="300" /></p>
 <div class="fragment">
-<p>This linear model could be represented as <span
-class="math display"><em>ŷ</em>(<em>w</em>,<em>x</em>) = <em>w</em><sub>0</sub> + <em>w</em><sub>1</sub><em>x</em><sub>1</sub></span></p>
+<p><span class="math display">\[\hat{y}(w,x) = w_0 + w_1x_1\]</span></p>
 </div>
 <div class="fragment">
-<p>Linear regression with one input feature: <em>univariate linear
-regression</em></p>
+<p><em>univariate linear regression</em></p>
 </div>
 <aside class="notes">
-<p>Linear here means that the target value is expected to be a linear
-combination of the input features.</p>
 <p>Let’s say we have house price as target value, and the house price is
 expected to be linearly increased with house area. Then we could use a
 linear model to capture this relationship, as shown in the diagram.</p>
-<p>Here <span class="math inline"><em>ŷ</em></span> is the target value,
-i.e. house price, we have only one input feature or variable <span
-class="math inline"><em>x</em><sub>1</sub></span>, i.e. house area,
-<span
-class="math inline"><em>w</em><sub>0</sub>, <em>w</em><sub>1</sub></span>
-are the weights.</p>
+<p>Here <span class="math inline">\(\hat{y}\)</span> is the target
+value, i.e. house price, we have only one input feature or variable
+<span class="math inline">\(x_1\)</span>, i.e. house area, <span
+class="math inline">\(w_0, w_1\)</span> are the weights.</p>
 <p>Linear regression with one input feature is also called univariate
 linear regression.</p>
 </aside>
@@ -139,24 +131,22 @@ linear regression.</p>
 <p>When we have more input features, e.g. number of bedrooms, area of
 balcony, construction year, etc.</p>
 <div class="fragment">
-<p>The model becomes <span
-class="math display"><em>ŷ</em>(<em>w</em>,<em>x</em>) = <em>w</em><sub>0</sub> + <em>w</em><sub>1</sub><em>x</em><sub>1</sub> + <em>w</em><sub>2</sub><em>x</em><sub>2</sub> + ⋯ + <em>w</em><sub><em>n</em></sub><em>x</em><sub><em>n</em></sub></span></p>
+<p>The model becomes <span class="math display">\[ \hat{y} (w,x) = w_0 +
+w_1 x_1 + w_2 x_2 + \cdots + w_n x_n \]</span></p>
 </div>
 <div class="fragment">
 <ul>
-<li><span class="math inline"><em>ŷ</em></span> is the target value</li>
-<li><span
-class="math inline"><em>X</em> = (<em>x</em><sub>1</sub>,⋯,<em>x</em><sub><em>n</em></sub>)</span>
-are input features</li>
-<li><span
-class="math inline"><em>W</em> = (<em>w</em><sub>0</sub>,⋯,<em>w</em><sub><em>n</em></sub>)</span>
-are weights
+<li><span class="math inline">\(\hat{y}\)</span> is the target
+value</li>
+<li><span class="math inline">\(X = (x_1, \cdots, x_n)\)</span> are
+input features</li>
+<li><span class="math inline">\(W = (w_0, \cdots, w_n)\)</span> are
+weights
 <ul>
-<li>weight <span class="math inline"><em>w</em><sub>0</sub></span> is
-also called intercept</li>
-<li>and the other weights <span
-class="math inline">(<em>w</em><sub>1</sub>,⋯,<em>w</em><sub><em>n</em></sub>)</span>
-are coefficients.</li>
+<li>weight <span class="math inline">\(w_0\)</span> is also called
+intercept</li>
+<li>and the other weights <span class="math inline">\((w_1, \cdots,
+w_n)\)</span> are coefficients.</li>
 </ul></li>
 </ul>
 </div>
@@ -167,17 +157,18 @@ are coefficients.</li>
 does this model capture the data that we observe?</p>
 <div class="fragment">
 <p>We could use loss function</p>
-<p><span
-class="math display"><em>J</em>(<em>w</em>) = ||<em>y</em> − <em>ŷ</em>||<sup>2</sup></span></p>
+<p><span class="math display">\[ J(w) = ||y - \hat{y}||^2 \]</span></p>
 <p>the sum of squares of the differences between real values <span
-class="math inline"><em>y</em></span> and predicted values <span
-class="math inline"><em>ŷ</em></span></p>
+class="math inline">\(y\)</span> and predicted values <span
+class="math inline">\(\hat{y}\)</span></p>
 </div>
 <aside class="notes">
 <p>We can come up with a <strong>loss function</strong> that measures
 the “error” between real values and predicted values.</p>
 <p>For regression, we can for example calculate the squares of the
 differences between real and predicted points</p>
+<p>The squares in the “Ordinary Least Squares” comes from this loss
+function.</p>
 </aside>
 </section>
 <section id="optimization-algorithm" class="slide level2">
@@ -185,23 +176,22 @@ differences between real and predicted points</p>
 <p>Do you still remember the ML goal?</p>
 <div class="fragment">
 <p><strong>minimize loss function <span
-class="math inline"><em>J</em>(<em>w</em>)</span></strong></p>
+class="math inline">\(J(w)\)</span></strong></p>
 </div>
 <div class="fragment">
 <p>This is done by <strong>optimization algorithm</strong>:</p>
-<p>keep changing weights <span class="math inline"><em>w</em></span> to
-reduce loss <span class="math inline"><em>J</em>(<em>w</em>)</span>
-until it hopefully ends up at a minimum</p>
+<p>keep changing weights <span class="math inline">\(w\)</span> to
+reduce loss <span class="math inline">\(J(w)\)</span> until it hopefully
+ends up at a minimum</p>
 </div>
 <aside class="notes">
 <p>Now that we have defined a loss function, we want to choose the
 weights so that the loss is as small as possible.</p>
 <p>We do this with an <strong>optimization algorithm</strong>: an
 algorithm used to minimize the loss function,</p>
-<p>i.e. to keep changing weights <span
-class="math inline"><em>w</em></span> to reduce loss <span
-class="math inline"><em>J</em>(<em>w</em>)</span> until it hopefully
-ends up at a minimum.</p>
+<p>i.e. to keep changing weights <span class="math inline">\(w\)</span>
+to reduce loss <span class="math inline">\(J(w)\)</span> until it
+hopefully ends up at a minimum.</p>
 </aside>
 </section>
 <section class="slide level2">
@@ -217,8 +207,8 @@ href="https://en.wikipedia.org/wiki/Gradient_descent">gradient
 descent</a>, also known as steepest descent.</p>
 <p>The basic idea is to take repeated steps in the opposite direction of
 the gradient of the loss function, i.e. <span
-class="math inline">$\displaystyle \nabla{_wJ} =
-\frac{\partial{}}{\partial{w}}J(w)$</span>, which will lead to a local
+class="math inline">\(\displaystyle \nabla{_wJ} =
+\frac{\partial{}}{\partial{w}}J(w)\)</span>, which will lead to a local
 minimum of loss function, as shown below.</p>
 </aside>
 </section>
@@ -231,24 +221,24 @@ alt="Gradient descent 2D dynamic" />
 <aside class="notes">
 <p>As a reference, the gradient descent can be exactly described as
 below:</p>
-<p><span class="math display">$$ \color{gray} \text{repeat until
+<p><span class="math display">\[ \color{gray} \text{repeat until
 convergence: } \\
      \color{black} w_i := w_i - \alpha\frac{\partial{}}{\partial{w}}J(w)
 \\
     \color{gray}
     \text{for } i = (0, \cdots, n) \\
     \alpha \text{ is learning rate}
-$$</span></p>
+\]</span></p>
 </aside>
 </section>
 <section id="summary" class="slide level2">
 <h2>Summary:</h2>
 <p>Linear regression</p>
 <ul>
-<li>Model presentation: <span
-class="math inline"><em>ŷ</em>(<em>w</em>,<em>x</em>) = <em>w</em><sub>0</sub> + <em>w</em><sub>1</sub><em>x</em><sub>1</sub> + ⋯ + <em>w</em><sub><em>n</em></sub><em>x</em><sub><em>n</em></sub></span></li>
-<li>Loss function: <span
-class="math inline"><em>J</em>(<em>w</em>) = ||<em>y</em> − <em>ŷ</em>||<sup>2</sup></span></li>
+<li>Model presentation: <span class="math inline">\(\hat{y} (w,x) = w_0
++ w_1 x_1 + \cdots + w_n x_n\)</span></li>
+<li>Loss function: <span class="math inline">\(J(w) = ||y -
+\hat{y}||^2\)</span></li>
 <li>Optimization algorithm: Gradient Descent</li>
 </ul>
 </section></section>
@@ -283,15 +273,23 @@ function.</p>
 </figure>
 <aside class="notes">
 <!-- Text and fig from https://github.com/carpentries-incubator/deep-learning-intro/blob/gh-pages/_episodes/01-introduction.md -->
-<p>Each neuron - has one or more inputs, e.g. input data expressed as
-floating point numbers - most of the time, each neuron conducts 3 main
-operations: + take the weighted sum of the inputs + add an extra
-constant weight (i.e. a bias term) to this weighted sum + apply a
-non-linear function to the output so far (using a predefined activation
-function, e.g. the <a
+<p>Each neuron</p>
+<ul>
+<li>has one or more inputs, e.g. input data expressed as floating point
+numbers</li>
+<li>most of the time, each neuron conducts 3 main operations:
+<ul>
+<li>take the weighted sum of the inputs</li>
+<li>add an extra constant weight (i.e. a bias term) to this weighted
+sum</li>
+<li>apply a non-linear function to the output so far (using a predefined
+activation function, e.g. the <a
 href="https://en.wikipedia.org/wiki/Sigmoid_function">logistic or
-sigmoid function</a>) - return one output value, again a floating point
-number</p>
+sigmoid function</a>)</li>
+</ul></li>
+<li>return one output value, again a floating point number</li>
+</ul>
+<p>Question: what is the difference with linear model?</p>
 </aside>
 </section>
 <section class="slide level2">
@@ -312,6 +310,16 @@ practice, use the default <code>relu</code> is good enough.</p>
 <section class="slide level2">
 
 <h3 id="nn-v.s.-linear-regression">NN v.s. linear regression</h3>
+<div>
+<ul>
+<li class="fragment">NN stacked layers and non-linearity → detect more
+complex patterns</li>
+<li class="fragment">Neurons is kind of <em>feature extractor</em></li>
+<li class="fragment">However, NN requires large amount of data to detect
+the patterns and extract the features</li>
+</ul>
+</div>
+<aside class="notes">
 <p>The design of the neural network, with it’s non-linearity and layers
 stacked on top of each other, allows for much more complex patterns to
 be detected than with linear regression.</p>
@@ -319,12 +327,12 @@ be detected than with linear regression.</p>
 relevant pieces of information from the input data.</p>
 <p>The flipside of the coin, is that often we need large amounts of
 training data to be able to learn these features.</p>
+</aside>
 </section>
 <section class="slide level2">
 
 <h3 id="deep-learning-frameworks">Deep learning frameworks</h3>
-<p>The NN available in <code>scikit-learn</code> just look like the
-architecture in the previous diagram.</p>
+<p><code>scikit-learn</code> NN model is multi-layer perceptron</p>
 <p>To use more complex NN, other framework should be used, e.g. <a
 href="https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software">PyTorch,
 Keras, TensorFlow, etc</a>.</p>
@@ -336,11 +344,21 @@ href="https://alexlenail.me/NN-SVG/index.html">plot NN</a></p>
 <section id="loss-function-1" class="slide level2">
 <h2>Loss function</h2>
 <p>Loss function can be shared by all regression models</p>
-<p><span
-class="math display"><em>J</em>(<em>w</em>) = ||<em>y</em> − <em>ŷ</em>||<sup>2</sup></span></p>
+<p><span class="math display">\[J(w) = ||y - \hat{y}||^2\]</span></p>
 </section>
 <section id="optimization-algorithms" class="slide level2">
 <h2>Optimization algorithms</h2>
+<div class="fragment">
+<p><a
+href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent">Stochastic
+Gradient Descent</a>(SGD)</p>
+<ul>
+<li>GD uses actual gradient, calculated from the entire training
+data</li>
+<li>SGD use an estimate calculated from a randomly selected subset of
+the training data</li>
+</ul>
+</div>
 <aside class="notes">
 <p>Neural network also use gradient descent as <a
 href="https://scikit-learn.org/stable/modules/neural_networks_supervised.html#algorithms">optimization
@@ -349,13 +367,6 @@ algorithm</a>.</p>
 href="https://scikit-learn.org/stable/modules/sgd.html">scikit-learn
 guide</a>.</p>
 </aside>
-<p><a
-href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent">Stochastic
-Gradient Descent</a>(SGD)</p>
-<p>The difference of SGD with regular gradient descent is that SGD
-replaces the actual gradient (calculated from the entire training data)
-by an estimate (calculated from a randomly selected subset of the
-training data)</p>
 </section>
 <section class="slide level2">
 
@@ -364,11 +375,10 @@ href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent#Adam">Adam</a>(A
 Moment Estimation)</p>
 <ul>
 <li>also a stochastic optimizer</li>
-<li>but it can automatically adjust the amount to update weights. It
-works great on large datasets (thousands of training samples or more) in
-terms of both training time and validation score,</li>
-<li>It’s recommended to use <code>Adam</code> as the first choice in
-practice</li>
+<li>but can automatically adjust the amount to update weights</li>
+<li>works great on large datasets (thousands of training samples or
+more) in terms of both training time and validation score</li>
+<li>Use <code>Adam</code> as the first choice in practice</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -385,11 +395,40 @@ gradients are used by optimization algorithm to update weights.</li>
 <h2>Summary:</h2>
 <p>Neural network</p>
 <ul>
-<li>Model presentation</li>
-<li>Loss function: <span
-class="math inline"><em>J</em>(<em>w</em>) = ||<em>y</em> − <em>ŷ</em>||<sup>2</sup></span></li>
+<li>Model presentation: multi-layer perceptron</li>
+<li>Loss function: <span class="math inline">\(J(w) = ||y -
+\hat{y}||^2\)</span></li>
 <li>Optimization algorithm: SGD, ADAM</li>
 </ul>
+</section></section>
+<section>
+<section id="thank-you" class="title-slide slide level1"
+data-background-image="image/e-end1.png">
+<h1 data-background-image="image/e-end1.png">Thank you</h1>
+
+</section>
+<section id="qa" class="slide level2"
+data-background-image="image/e-end1.png">
+<h2 data-background-image="image/e-end1.png">Q&amp;A</h2>
+<aside class="notes">
+<p><strong>Ensemble methods</strong> Decision trees, as we were
+introduced for classification, can also be used for regression. We
+assign the <em>mean</em> of the scores of the items in a leaf. However,
+we also saw that decision trees are prone to overfitting. Small
+variations in the data lead to completely different trees.</p>
+<p><strong>Random forest</strong> A forest is a collection of trees.
+Each of the trees is trained on a random sample of <em>features</em> and
+a random sample of <em>data items</em>. The prediction is the
+<em>average</em> of all individual predictions.</p>
+<p>This makes the model more robust than a single tree.</p>
+<p><strong>Boosting</strong> There are also other types of ‘ensemble
+models’. In <em>boosting</em>, you give more weight to data points that
+were difficult to predict by previous models in the ensemble.</p>
+<p><strong>Tip</strong>: look into the
+<code>HistGradientBoostingClassifier</code> and
+<code>HistGradientBoostingRegressor</code> in sklearn. They are fast,
+handle missing data automatically and often work well!</p>
+</aside>
 </section></section>
     </div>
   </div>
@@ -400,6 +439,7 @@ class="math inline"><em>J</em>(<em>w</em>) = ||<em>y</em> − <em>ŷ</e
   <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
   <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
   <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/math/math.js"></script>
 
   <script>
 
@@ -546,8 +586,29 @@ class="math inline"><em>J</em>(<em>w</em>) = ||<em>y</em> − <em>ŷ</e
         // viewDistance in order to save resources.
         mobileViewDistance: 2,
 
+        // Parallax background image
+        parallaxBackgroundImage: 'image/e-content1.png', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
         // reveal.js plugins
         plugins: [
+          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

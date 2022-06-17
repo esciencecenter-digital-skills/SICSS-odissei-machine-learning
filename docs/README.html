@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <title>Performance metrics</title>
+  <title>Presentations with Reveal.js</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -27,125 +27,25 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="image/e-title.png" data-background-size="contain">
-  <h1 class="title">Performance metrics</h1>
+<section id="title-slide">
+  <h1 class="title">Presentations with Reveal.js</h1>
 </section>
 
-<section id="confusion-matrix" class="slide level1">
-<h1>Confusion matrix</h1>
-<p><img data-src="image/2.1-Confusion-matrix.png" /></p>
-<p>Note that the majority class is “No BBQ”.</p>
-<aside class="notes">
-<p>Suppose we have this confusion matrix.</p>
-<p>Note that the majority class is “No BBQ”.</p>
-<p>In machine learning jargon, when we have binary classification we
-speak about ‘positive’ and ‘negative’ classes. It is a bit arbitrary
-which class you choose as positive, but generally speaking it’s the
-class you’re most interested in to predict well. We are interested in
-nice BBQ weather, so this is our ‘positive’ class.</p>
-</aside>
-</section>
-<section id="tp-tn-fp-fn" class="slide level1">
-<h1>TP TN FP FN</h1>
-<div class="fragment">
-<p><img data-src="image/2.2-Confusion-matrix-rates.png" id="id"
-class="class" height="250" /></p>
+<section id="how-to-present" class="slide level2">
+<h2>How to present?</h2>
 <ul>
-<li>TN: True Negative</li>
-<li>FN: False Negative</li>
-<li>FP: False Positive</li>
-<li>TP: True Positive</li>
+<li><code>s</code>: enable speaker view</li>
+<li><code>f</code>: enable fullscreen mode</li>
+<li><code>o</code>: enable overview mode</li>
 </ul>
-</div>
-<aside class="notes">
-<ul>
-<li><strong>T</strong>rue <strong>P</strong>ositives: Positive in
-reality, prediction positive</li>
-<li><strong>T</strong>rue <strong>N</strong>egatives: Negative in
-reality, prediction negative</li>
-<li><strong>F</strong>alse <strong>P</strong>ositives: Negative in
-reality, prediction positive</li>
-<li><strong>F</strong>alse <strong>N</strong>egatives: Positive in
-reality, prediction negative</li>
-</ul>
-</aside>
 </section>
-<section id="accuracy" class="slide level1">
-<h1>Accuracy</h1>
-<div class="fragment">
-<p><em>Accuracy</em> is the rate of correct predictions: <span
-class="math display">\[acc = (TP+TN) / (TP+TN+FN+FP)\]</span></p>
-<p>In our case: <span class="math display">\[acc = (70 + 15) / 100 =
-0.85\]</span></p>
-<p>Note that this score gets skewed by the majority class!</p>
-</div>
-</section>
-<section id="precision-recall" class="slide level1">
-<h1>Precision &amp; recall</h1>
-<div class="fragment">
-<p>From <code>Positive</code> perspective:</p>
-<ul>
-<li>Precision: How many of the predicted BBQ days can we truly fire our
-BBQ?</li>
-<li>Recall: How many of the true BBQ days were predicted by the
-model?</li>
-</ul>
-</div>
-<div class="fragment">
-<p><span class="math display">\[precision = TP / (TP + FP) = 15 /
-(15+10) = 0.6\]</span> <span class="math display">\[recall = TP / (TP +
-FN) = 15 / (15+5) = 0.75\]</span></p>
-</div>
-<aside class="notes">
-<p>Note how these scores are lower than the precision. The model is not
-doing so well on our class of interest.</p>
-</aside>
-</section>
-<section id="f1" class="slide level1">
-<h1>f1</h1>
-<div class="fragment">
-<p>Often you want both precision and recall to be high.</p>
-<p>We can calculate the f1 score: <span class="math display">\[f1 = 2pr
-/ (p + r)\]</span> where p is precision and r is recall</p>
-</div>
-<aside class="notes">
-<p>(Note: this is a ‘harmonic mean’, which gives more weight to low
-values compared to regular mean. so it’s only high when both values are
-high).</p>
-</aside>
-</section>
-<section id="trade-off-precisionrecall" class="slide level1">
-<h1>Trade-off Precision/recall</h1>
-</section>
-<section class="slide level1">
-
-<p>For most models, we do not just get the predicted class, but also an
-associated <em>score</em>.</p>
-<p><img data-src="image/2.3-scores-table.png" /></p>
-<p>If the score is above a certain threshold, it assigns that class.</p>
-</section>
-<section class="slide level1">
-
-<h2 id="exercise">Exercise</h2>
-<p>What do you think happens with the precision and recall when we
-increase or decrease the threshold?</p>
-<p><img data-src="image/2.3-scores-table.png" /></p>
-</section>
-<section class="slide level1">
-
-<h2 id="solution">Solution</h2>
-<ul>
-<li><strong>increase</strong> the threshold, we get more strict: recall
-drops, precision may improve (if our model does well).</li>
-<li><strong>decrease</strong> the threshold, recall may increase but
-precision could drop.</li>
-</ul>
-<p><img data-src="image/2.4-precision-recall-graph.png" /></p>
-</section>
-<section id="thank-you" class="slide level1"
-data-background-image="image/e-end1.png">
-<h1 data-background-image="image/e-end1.png">Thank you</h1>
-<h2 data-background-image="image/e-end1.png" id="qa">Q&amp;A</h2>
+<section id="how-to-edit-markdown-slides" class="slide level2">
+<h2>How to edit markdown slides?</h2>
+<p>The markdown format is <a
+href="https://pandoc.org/MANUAL.html#pandocs-markdown">Pandoc’s
+markdown</a>.</p>
+<p>Check <a href="https://pandoc.org/MANUAL.html#slide-shows">Pandoc
+slides section</a> for detailed syntax.</p>
 </section>
     </div>
   </div>
@@ -302,9 +202,6 @@ data-background-image="image/e-end1.png">
         // devices. It is advisable to set this to a lower number than
         // viewDistance in order to save resources.
         mobileViewDistance: 2,
-
-        // Parallax background image
-        parallaxBackgroundImage: 'image/e-content1.png', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
 
         math: {
           mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
