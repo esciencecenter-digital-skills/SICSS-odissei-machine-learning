@@ -1,5 +1,9 @@
 ---
-title: Best Practices on Conducting ML Projects
+title: Best Practices
+parallaxBackgroundImage: image/e-content1.png
+title-slide-attributes:
+    data-background-image: image/e-title.png
+    data-background-size: contain
 ---
 
 # Before starting a machine learning project
@@ -57,3 +61,6 @@ title: Best Practices on Conducting ML Projects
 ## Re-train
 - Retrain the model when possible
   - e.g. more new data
+
+# Thank you {background-image="image/e-end1.png"}
+## Q&A {background-image="image/e-end1.png"}

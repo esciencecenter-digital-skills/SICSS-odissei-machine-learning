@@ -32,78 +32,73 @@
   <h1 class="title">Introduction to machine learning</h1>
 </section>
 
+<section>
+<section id="what-is-machine-learning" class="title-slide slide level1">
+<h1>What is machine learning?</h1>
+
+</section>
 <section class="slide level2">
 
-<!-- Author: Cunliang Geng -->
-<!-- Note: the commented lines are reference material -->
-<ul>
-<li><a href="#/introduction-to-machine-learning">Introduction to machine
-learning</a>
-<ul>
-<li><a href="#/what-is-machine-learning">What is machine
-learning</a></li>
-<li><a href="#/machine-learning-and-artificial-intelligence">Machine
-learning and artificial intelligence</a></li>
-<li><a href="#/machine-learning-and-statistics">Machine learning and
-statistics</a></li>
-<li><a href="#/types-of-machine-learning">Types of machine learning</a>
-<ul>
-<li><a href="#/supervised-learning">Supervised learning</a>
-<ul>
-<li><a href="#/classification">Classification</a></li>
-<li><a href="#/regression">Regression</a></li>
-</ul></li>
-<li><a href="#/unsupervised-learning">Unsupervised learning</a></li>
-<li><a href="#/reinforcement-learning">Reinforcement learning</a></li>
-</ul></li>
-<li><a href="#/limitations-of-machine-learning">Limitations of machine
-learning</a>
-<ul>
-<li><a href="#/data">Data</a></li>
-<li><a href="#/extrapolation">Extrapolation</a></li>
-<li><a href="#/interpretation-of-results">Interpretation of
-Results</a></li>
-</ul></li>
-<li><a href="#/machine-learning-glossary">Machine learning
-glossary</a></li>
-</ul></li>
-</ul>
-</section>
-<section>
-<section id="introduction-to-machine-learning"
-class="title-slide slide level1">
-<h1>Introduction to machine learning</h1>
-
-</section>
-<section id="what-is-machine-learning" class="slide level2">
-<h2>What is machine learning</h2>
-<p><strong>An informal definition by <a
-href="https://en.wikipedia.org/wiki/Arthur_Samuel">Arthur
-Samuel</a></strong> &gt; The field of study that gives computers the
-ability to learn without being explicitly programmed.</p>
+<p><a href="https://en.wikipedia.org/wiki/Arthur_Samuel">Arthur
+Samuel</a></p>
+<blockquote>
+<p>The field of study that gives computers the ability to learn without
+being explicitly programmed.</p>
+</blockquote>
+<aside class="notes">
 <p>The focus of machine learning (ML) is “learning”. A learning problem
 is about learning some properties of examples (training data) and then
 predicting those properties against other unseen data.</p>
-<p><strong>A modern definition by <a
-href="https://en.wikipedia.org/wiki/Tom_M._Mitchell">Tom
-Mitchell</a></strong> &gt; A computer program is said to learn from
-experience E with respect to some class of tasks T and performance
-measure P, if its performance at tasks in T, as measured by P, improves
-with experience E.</p>
+</aside>
+</section>
+<section class="slide level2">
+
+<p><a href="https://en.wikipedia.org/wiki/Tom_M._Mitchell">Tom
+Mitchell</a></p>
+<blockquote>
+<p>A computer program is said to learn from experience E with respect to
+some class of tasks T and performance measure P, if its performance at
+tasks in T, as measured by P, improves with experience E.</p>
+</blockquote>
+<aside class="notes">
 <p>Linking to the first definition, the experience E is actually the
 examples or training data, task T is the learning problem, and
 performance P is how well the computer program performs on task T when
 giving unknown data.</p>
-<p>For example, - predicting house price: - E = the historical price of
-many houses - T = the task of predicting house price - P = the
-performance is how exactly the program predict the house price - playing
-Go: - E = the experience of playing many games of Go - T = the task of
-playing Go - P = the probability that the program will win the next
-Go</p>
-<p><strong>The mathematical perspective:</strong></p>
-<p>The objective of ML is the function <span
-class="math inline"><em>f</em>(<em>x</em>)</span>: <span
+</aside>
+</section>
+<section class="slide level2">
+
+<p><strong>Experience E, Task T, Performance P</strong></p>
+<div>
+<ul>
+<li class="fragment">predicting house price:
+<ul>
+<li class="fragment">E = the historical price of many houses</li>
+<li class="fragment">T = the task of predicting house price</li>
+<li class="fragment">P = the performance is how exactly the program
+predict the house price</li>
+</ul></li>
+<li class="fragment">playing Go:
+<ul>
+<li class="fragment">E = the experience of playing many games of Go</li>
+<li class="fragment">T = the task of playing Go</li>
+<li class="fragment">P = the probability that the program will win the
+next Go</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="the-mathematical-perspective" class="slide level2">
+<h2>The mathematical perspective</h2>
+</section>
+<section class="slide level2">
+
+<p><img data-src="image/1.1-ML-objective.png" id="id" class="class"
+height="500" /></p>
+<p>ML objective is the function: <span
 class="math display"><em>ŷ</em> = <em>f</em>(<em>x</em>)</span></p>
+<aside class="notes">
 <p>The learning is to apply specific algorithms (learning algorithms) to
 training data to get the exact form of the function <span
 class="math inline"><em>f</em>(<em>x</em>)</span>. The learned function
@@ -114,21 +109,20 @@ class="math inline"><em>x</em></span>.</p>
 <p>The form of function <span
 class="math inline"><em>f</em>(<em>x</em>)</span> could be simple,
 e.g. linear function, or complex, e.g. non-linear function.</p>
-<!-- fig1.1 adapted from https://www.coursera.org/learn/machine-learning  -->
-<figure>
-<img data-src="../image/1.1-ML-objective.png" alt="ML-objective" />
-<figcaption aria-hidden="true">ML-objective</figcaption>
-</figure>
+</aside>
+</section></section>
+<section>
+<section id="ml-ai" class="title-slide slide level1">
+<h1>ML &amp; AI</h1>
+
 </section>
-<section id="machine-learning-and-artificial-intelligence"
-class="slide level2">
-<h2>Machine learning and artificial intelligence</h2>
-<!-- fig1.2 adapted from book of Wu, Jun. The Beauty of Mathematics in Computer Science. -->
-<!-- https://www.ibm.com/cloud/learn/what-is-artificial-intelligence -->
+<section class="slide level2">
+
 <figure>
-<img data-src="../image/1.2-ML-AI.png" alt="ML-AI" />
-<figcaption aria-hidden="true">ML-AI</figcaption>
+<img data-src="image/1.2-ML-AI.png" alt="AI &amp; ML" />
+<figcaption aria-hidden="true">AI &amp; ML</figcaption>
 </figure>
+<aside class="notes">
 <p>Let’s treat all problems in the universe as a set. This set can be
 divided to mathematical problems and other problems (e.g. love problems,
 moral and ethical problems, cultural conflict problems and so on).</p>
@@ -154,10 +148,15 @@ decision trees, support vector machine, etc.</p>
 artificial neural networks. “Deep” in deep learning refers to a neural
 network comprised of more than three layers, which would be inclusive of
 the inputs and the output.</p>
+</aside>
+</section>
+<section class="slide level2">
+
 <figure>
-<img data-src="../image/1.3-DL.png" alt="Deep learning" />
+<img data-src="image/1.3-DL.png" alt="Deep learning" />
 <figcaption aria-hidden="true">Deep learning</figcaption>
 </figure>
+<aside class="notes">
 <!-- https://www.ibm.com/cloud/learn/what-is-artificial-intelligence -->
 <p>Classical ML algorithms and DL differ in how each algorithm learns.
 Deep learning automates much of the feature extraction piece of the
@@ -166,53 +165,116 @@ enabling the use of larger data sets. Classical machine learning is more
 dependent on human intervention to learn. Human experts determine the
 hierarchy of features to understand the differences between data inputs,
 usually requiring more structured data to learn.</p>
+</aside>
+</section></section>
+<section>
+<section id="ml-statistics" class="title-slide slide level1">
+<h1>ML &amp; statistics</h1>
+
 </section>
-<section id="machine-learning-and-statistics" class="slide level2">
-<h2>Machine learning and statistics</h2>
+<section id="ml-statistics-1" class="slide level2">
+<h2>ML &amp; Statistics</h2>
+<div>
+<ul>
+<li class="fragment">Closely related: <em>methods</em></li>
+<li class="fragment">Different: <em>goal</em>
+<ul>
+<li class="fragment">Statistics draws population inferences from a
+sample</li>
+<li class="fragment">ML finds generalizable predictive patterns</li>
+</ul></li>
+</ul>
+</div>
+<aside class="notes">
 <!-- https://www.nature.com/articles/nmeth.4642 -->
 <!-- https://en.wikipedia.org/wiki/Machine_learning#Statistics -->
 <p>Machine learning and statistics are closely related fields in terms
 of methods, but distinct in their principal goal: statistics draws
 population inferences from a sample, while machine learning finds
 generalizable predictive patterns.</p>
-<!-- https://machinelearningmastery.com/types-of-learning-in-machine-learning/ -->
+</aside>
+</section></section>
+<section>
+<section id="ml-types" class="title-slide slide level1">
+<h1>ML Types</h1>
+
 </section>
-<section id="types-of-machine-learning" class="slide level2">
-<h2>Types of machine learning</h2>
-<p>There are three main types of learning problems in machine learning:
-supervised, unsupervised, and reinforcement learning.</p>
-<h3 id="supervised-learning">Supervised learning</h3>
+<section class="slide level2">
+
+<p>Three main types of ML problems</p>
+<ul>
+<li>Supervised learning</li>
+<li>Unsupervised learning</li>
+<li>Reinforcement learning</li>
+</ul>
+</section>
+<section id="supervised-learning" class="slide level2">
+<h2>Supervised learning</h2>
+<p>To learn a mapping between input examples and the target
+variable.</p>
+<p>The training data has the target variable.</p>
+<aside class="notes">
 <p>Supervised learning describes a type of problem that enables computer
 to learn a mapping between input examples and the target variable. The
 training data comes with the target variable that we want to predict, we
 call it labeled data.</p>
-<h4 id="classification">Classification</h4>
-<!-- https://scikit-learn.org/stable/tutorial/basic/tutorial.html#machine-learning-the-problem-setting -->
+</aside>
+</section>
+<section class="slide level2">
+
+<h3 id="supervised-learning-classification">Supervised learning:
+Classification</h3>
+<p>Target variable is discrete, belonging to two or more classes</p>
+<p>e.g. handwritten digit recognition</p>
+<aside class="notes">
 <p>As for classification, its target variable is discrete. The target
 belongs to two or more classes and we want to learn from already labeled
 data how to predict the class of unlabeled data.</p>
 <p>An example of a classification problem would be handwritten digit
 recognition, in which the aim is to assign each input vector to one of a
 finite number of discrete categories.</p>
-<h4 id="regression">Regression</h4>
-<!-- https://scikit-learn.org/stable/tutorial/basic/tutorial.html#machine-learning-the-problem-setting -->
+</aside>
+</section>
+<section class="slide level2">
+
+<h3 id="supervised-learning-regression">Supervised learning:
+Regression</h3>
+<p>Target variable is continuous real value</p>
+<p>e.g. predicting length of a salmon</p>
+<aside class="notes">
 <p>Regression’s target variable is continuous. An example of a
 regression problem would be the prediction of the length of a salmon as
 a function of its age and weight.</p>
-<h3 id="unsupervised-learning">Unsupervised learning</h3>
-<!-- https://scikit-learn.org/stable/tutorial/basic/tutorial.html#machine-learning-the-problem-setting -->
-<p>Unsupervised learning describes a type of problem that enables
-computer to describe or extract relationships in data. The training data
-is unlabelled data, i.e. there is no value of target variable in the
-training data.</p>
-<p>The goal in such problems may be - to discover groups of similar
-examples within the data, where it is called
-<strong>clustering</strong>, - to determine the distribution of data
-within the input space, known as <strong>density estimation</strong>, -
-to project the data from a high-dimensional space down to two or three
-dimensions, i.e. <strong>dimensionality reduction</strong></p>
-<h3 id="reinforcement-learning">Reinforcement learning</h3>
-<!-- https://machinelearningmastery.com/types-of-learning-in-machine-learning/ -->
+</aside>
+</section>
+<section id="unsupervised-learning" class="slide level2">
+<h2>Unsupervised learning</h2>
+<p>To describe or extract relationships in data</p>
+<p>Training data does not have values of target variable</p>
+</section>
+<section class="slide level2">
+
+<h3 id="unsupervised-learning-problems">Unsupervised learning
+problems</h3>
+<div>
+<ul>
+<li class="fragment">clustering: <em>to discover groups of similar
+examples within the data</em></li>
+<li class="fragment">density estimation: <em>to determine the
+distribution of data within the input space</em></li>
+<li class="fragment">dimensionality reduction: <em>to project the data
+from a high-dimensional space down to two or three dimensions</em></li>
+<li class="fragment">…</li>
+</ul>
+</div>
+</section>
+<section id="reinforcement-learning" class="slide level2">
+<h2>Reinforcement learning</h2>
+<p>An agent operates in an environment and must learn to operate using
+feedback.</p>
+<p>No fixed training data</p>
+<p>e.g. Google’s AlphaGo</p>
+<aside class="notes">
 <p>Reinforcement learning describes a type of problem where an agent
 operates in an environment and must learn to operate using feedback.</p>
 <p>The use of an environment means that there is no fixed training
@@ -220,43 +282,54 @@ dataset, rather a goal or set of goals that an agent is required to
 achieve, actions they may perform, and feedback about performance toward
 the goal.</p>
 <p>An example of reinforcement learning is Google’s AlphaGo.</p>
-<!-- https://github.com/esciencecenter-digital-skills/machine-learning-material/blob/main/notebooks/1-Intro.ipynb -->
-<p><strong>Exercise: Supervised or unsupervised</strong></p>
-<p>For the following problems, do you think you need a supervised or
-unsupervised approach?</p>
-<ul>
-<li>Find numerical representations for words in a language (word
-vectors) that contain semantic information on the word</li>
-<li>Determine whether a tumor is benign or malign, based on an
-MRI-scan</li>
-<li>Predict the age of a patient, based on an EEG-scan</li>
-<li>Cluster observations of plants into groups of individuals that have
-similar properties, possibly belonging to the same species</li>
-<li>Your own problem and dataset</li>
-</ul>
+</aside>
 </section>
-<section id="limitations-of-machine-learning" class="slide level2">
-<h2>Limitations of machine learning</h2>
-<!-- https://carpentries-incubator.github.io/machine-learning-novice-sklearn/01-introduction/index.html -->
-<h3 id="data">Data</h3>
-<p>Machine Learning requires massive data to train on. These data should
-be unbiased and of good quality, which are not easy to get in
-practice.</p>
-<h3 id="extrapolation">Extrapolation</h3>
-<p>We can only make reliable predictions about data which is in the same
-range as our training data. If we try to extrapolate beyond what was
-covered in the training data we’ll probably get wrong answers.</p>
-<h3 id="interpretation-of-results">Interpretation of Results</h3>
-<p>It’s a challenge to accurately interpret results generated by the
-algorithms. You have to carefully choose the algorithms for your
-purpose.</p>
-</section>
-<section id="machine-learning-glossary" class="slide level2">
-<h2>Machine learning glossary</h2>
-<p>Here are some resources about ML glossary -
-https://developers.google.com/machine-learning/glossary -
-https://scikit-learn.org/stable/glossary.html</p>
+<section id="exercise-supervised-or-unsupervised" class="slide level2">
+<h2>Exercise: Supervised or unsupervised?</h2>
+<div>
+<ol type="1">
+<li class="fragment">Find numerical representations for words in a
+language (word vectors) that contain semantic information on the
+word</li>
+<li class="fragment">Determine whether a tumor is benign or malign,
+based on an MRI-scan</li>
+<li class="fragment">Predict the age of a patient, based on an
+EEG-scan</li>
+<li class="fragment">Cluster observations of plants into groups of
+individuals that have similar properties, possibly belonging to the same
+species</li>
+<li class="fragment">The problem and dataset of your own project</li>
+</ol>
+</div>
 </section></section>
+<section>
+<section id="ml-limitations" class="title-slide slide level1">
+<h1>ML Limitations</h1>
+
+</section>
+<section id="data" class="slide level2">
+<h2>Data</h2>
+<p>ML requires massive data to train on</p>
+<p>Data should be unbiased and of good quality</p>
+<p>Not easy to get in practice</p>
+</section>
+<section id="extrapolation" class="slide level2">
+<h2>Extrapolation</h2>
+<p>We can only make reliable predictions about data which is in the same
+range as our training data.</p>
+<p>If we try to extrapolate beyond what was covered in the training data
+we’ll probably get wrong answers.</p>
+</section>
+<section id="interpretation-of-results" class="slide level2">
+<h2>Interpretation of Results</h2>
+<p>It’s a challenge to accurately interpret results generated by the
+algorithms.</p>
+<p>You have to carefully choose the algorithms for your purpose.</p>
+</section></section>
+<section id="q-a" class="title-slide slide level1">
+<h1>Q &amp; A</h1>
+
+</section>
     </div>
   </div>
 
