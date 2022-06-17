@@ -1,5 +1,9 @@
 ---
 title: Regression theory
+parallaxBackgroundImage: image/e-content1.png
+title-slide-attributes:
+    data-background-image: image/e-title.png
+    data-background-size: contain
 ---
 
 # Intro
@@ -22,10 +26,13 @@ The model $f(x)$ can also be represented as $\hat{y}(w, x)$, where $x$ is input 
 
 ML is meant to
 
-- choose proper weights $w$ with an [optimization algorithm](https://en.wikipedia.org/wiki/Mathematical_optimization) (learning algorithm)
-- so that the target $\hat{y}(w, x)$ is close to real values in training data
+- make the target $\hat{y}(w, x)$ as close as possible to real values in training data
+- by choosing proper weights $w$
+  - with [optimization algorithm](https://en.wikipedia.org/wiki/Mathematical_optimization) (learning algorithm)
 
+::: fragment
 - the "error" or "cost" between real values and predicted values is presented with [loss function](https://en.wikipedia.org/wiki/Loss_function)
+:::
 
 ---
 
@@ -37,7 +44,7 @@ with respect to weights $w$
 
 ---
 
-We'll learn
+## We'll learn
 
 - Ordinary least squares (linear regression)
 - Neural network (non-linear regression)
@@ -53,17 +60,14 @@ In this section, we'll learn two regression model — the ordinary least squares
 ![](image/3.1-linear-reg-one-variable.png){height=300px}
 
 ::: fragment
-This linear model could be represented as
 $$\hat{y}(w,x) = w_0 + w_1x_1$$
 :::
 
 ::: fragment
-Linear regression with one input feature: *univariate linear regression*
+*univariate linear regression*
 :::
 
 ::: notes
-Linear here means that the target value is expected to be a linear combination of the input features.
-
 Let's say we have house price as target value, and the house price is expected to be linearly increased with house area. Then we could use a linear model to capture this relationship, as shown in the diagram.
 
 Here $\hat{y}$ is the target value, i.e. house price,  we have only one input feature or variable $x_1$, i.e. house area, $w_0, w_1$ are the weights.
@@ -88,7 +92,6 @@ $$ \hat{y} (w,x) = w_0 + w_1 x_1 + w_2 x_2 + \cdots + w_n x_n $$
   - and the other weights $(w_1, \cdots, w_n)$ are coefficients.
 :::
 
-
 ## Loss function
 
 We have a linear model with certain values for the weights. How well does this model capture the data that we observe?
@@ -105,6 +108,8 @@ $$ J(w) = ||y - \hat{y}||^2 $$
 We can come up with a **loss function** that measures the "error" between real values and predicted values.
 
 For regression, we can for example calculate the squares of the differences between real and predicted points
+
+The squares in the "Ordinary Least Squares" comes from this loss function.
 :::
 
 
@@ -133,7 +138,6 @@ i.e. to keep changing weights $w$ to reduce loss $J(w)$ until it hopefully ends 
 ---
 
 [Gradient Descent](https://en.wikipedia.org/wiki/Gradient_descent)
-
 
 ![Gradient descent 1D](image/3.2-Gradient-descent.png)
 <!-- Figure Gradient-descent.png from https://imaddabbura.github.io/img/gradient-descent-algorithms/gradients.PNG -->
@@ -195,12 +199,15 @@ The diagram demonstrates one hidden layer neural network.
 <!-- Text and fig from https://github.com/carpentries-incubator/deep-learning-intro/blob/gh-pages/_episodes/01-introduction.md -->
 
 Each neuron
+
 - has one or more inputs, e.g. input data expressed as floating point numbers
 - most of the time, each neuron conducts 3 main operations:
   + take the weighted sum of the inputs
   + add an extra constant weight (i.e. a bias term) to this weighted sum
   + apply a non-linear function to the output so far (using a predefined activation function, e.g. the [logistic or sigmoid function](https://en.wikipedia.org/wiki/Sigmoid_function))
 - return one output value, again a floating point number
+
+Question: what is the difference with linear model?
 :::
 
 ---
@@ -218,17 +225,24 @@ Each neuron
 
 ### NN v.s. linear regression
 
+::: incremental
+- NN stacked layers and non-linearity → detect more complex patterns
+- Neurons is kind of *feature extractor*
+- However, NN requires large amount of data to detect the patterns and extract the features
+:::
+
+::: notes
 The design of the neural network, with it's non-linearity and layers stacked on top of each other, allows for much more complex patterns to be detected than with linear regression.
 
 We can view the neurons as *feature detectors*, that retrieve relevant pieces of information from the input data.
 
 The flipside of the coin, is that often we need large amounts of training data to be able to learn these features.
-
+:::
 ---
 
 ### Deep learning frameworks
 
-The NN available in `scikit-learn` just look like the architecture in the previous diagram.
+ `scikit-learn`  NN model is multi-layer perceptron
 
 To use more complex NN, other framework should be used, e.g. [PyTorch, Keras, TensorFlow, etc](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software).
 
@@ -244,6 +258,12 @@ $$J(w) = ||y - \hat{y}||^2$$
 
 ## Optimization algorithms
 
+::: fragment
+[Stochastic Gradient Descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent)(SGD)
+
+- GD uses actual gradient, calculated from the entire training data
+- SGD use an estimate calculated from a randomly selected subset of the training data
+:::
 
 ::: notes
 Neural network also use gradient descent as [optimization algorithm](https://scikit-learn.org/stable/modules/neural_networks_supervised.html#algorithms).
@@ -251,17 +271,15 @@ Neural network also use gradient descent as [optimization algorithm](https://sci
 More details about SGD can be found in [scikit-learn guide](https://scikit-learn.org/stable/modules/sgd.html).
 :::
 
-[Stochastic Gradient Descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent)(SGD)
-
- The difference of SGD with regular gradient descent is that SGD replaces the actual gradient (calculated from the entire training data) by an estimate (calculated from a randomly selected subset of the training data)
 
 ---
 
 [Adam](https://en.wikipedia.org/wiki/Stochastic_gradient_descent#Adam)(Adaptive Moment Estimation)
 
 - also a stochastic optimizer
-- but it can automatically adjust the amount to update weights. It works great on large datasets (thousands of training samples or more) in terms of both training time and validation score,
-- It's recommended to use `Adam` as the first choice in practice
+- but can automatically adjust the amount to update weights
+- works great on large datasets (thousands of training samples or more) in terms of both training time and validation score
+- Use `Adam` as the first choice in practice
 
 ---
 
@@ -275,6 +293,25 @@ More details about SGD can be found in [scikit-learn guide](https://scikit-learn
 
 Neural network
 
-- Model presentation
+- Model presentation: multi-layer perceptron
 - Loss function: $J(w) = ||y - \hat{y}||^2$
 - Optimization algorithm: SGD, ADAM
+
+# Thank you {background-image="image/e-end1.png"}
+## Q&A {background-image="image/e-end1.png"}
+
+::: notes
+**Ensemble methods**
+Decision trees, as we were introduced for classification, can also be used for regression. We assign the *mean* of the scores of the items in a leaf.
+However, we also saw that decision trees are prone to overfitting. Small variations in the data lead to completely different trees.
+
+**Random forest**
+A forest is a collection of trees. Each of the trees is trained on a random sample of *features* and a random sample of *data items*. The prediction is the *average* of all individual predictions.
+
+This makes the model more robust than a single tree.
+
+**Boosting**
+There are also other types of 'ensemble models'. In *boosting*, you give more weight to data points that were difficult to predict by previous models in the ensemble.
+
+**Tip**: look into the `HistGradientBoostingClassifier` and `HistGradientBoostingRegressor` in sklearn. They are fast, handle missing data automatically and often work well!
+:::

@@ -1,5 +1,9 @@
 ---
 title: Performance metrics
+parallaxBackgroundImage: image/e-content1.png
+title-slide-attributes:
+    data-background-image: image/e-title.png
+    data-background-size: contain
 ---
 
 # Confusion matrix
@@ -21,7 +25,7 @@ It is a bit arbitrary which class you choose as positive, but generally speaking
 # TP TN FP FN
 
 ::: fragment
-![](image/2.2-Confusion-matrix-rates.png){#id .class height=300px}
+![](image/2.2-Confusion-matrix-rates.png){#id .class height=250px}
 
 - TN: True Negative
 - FN: False Negative
@@ -106,3 +110,6 @@ What do you think happens with the precision and recall when we increase or decr
 - **decrease** the threshold, recall may increase but precision could drop.
 
 ![](image/2.4-precision-recall-graph.png)
+
+# Thank you {background-image="image/e-end1.png"}
+## Q&A {background-image="image/e-end1.png"}
