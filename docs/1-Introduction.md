@@ -211,10 +211,20 @@ You have to carefully choose the algorithms for your purpose.
 # Todays data
 
 ## Weather data set
-![map_locations](https://raw.githubusercontent.com/carpentries-incubator/deep-learning-intro/b09d4d5dc2f730478f3caf7e81542865afc333e3/fig/03_weather_prediction_dataset_map.png)
 
+:::::::::::::: {.columns}
+::: {.column width="75%"}
+
+![](https://raw.githubusercontent.com/carpentries-incubator/deep-learning-intro/b09d4d5dc2f730478f3caf7e81542865afc333e3/fig/03_weather_prediction_dataset_map.png)
+
+:::
+::: {.column width="25%"}
 * 18 locations
-* 'cloud_cover', 'wind_speed', 'wind_gust', 'humidity', 'pressure', 'global_radiation', 'precipitation', 'sunshine'
+* cloud_cover, wind_speed, wind_gust, humidity, pressure, global_radiation, precipitation, sunshine
+
+:::
+::::::::::::::
+
 
 # Thank you {background-image="image/e-end1.png"}
 ## Q&A {background-image="image/e-end1.png"}
