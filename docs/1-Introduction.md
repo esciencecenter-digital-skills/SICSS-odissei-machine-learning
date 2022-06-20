@@ -186,19 +186,6 @@ The use of an environment means that there is no fixed training dataset, rather 
 An example of reinforcement learning is Google’s AlphaGo.
 :::
 
-
-## Exercise
-Supervised or unsupervised?
-
-::: incremental
-1. Find numerical representations for words in a language (word vectors) that contain semantic information on the word
-2. Determine whether a tumor is benign or malign, based on an MRI-scan
-3. Predict the age of a patient, based on an EEG-scan
-4. Cluster observations of plants into groups of individuals that have similar properties, possibly belonging to the same species
-5. The problem and dataset of your own project
-:::
-
-
 # ML Limitations
 
 ## Data
