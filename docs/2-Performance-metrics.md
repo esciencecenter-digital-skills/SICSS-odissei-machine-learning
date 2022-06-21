@@ -3,7 +3,7 @@ title: Performance metrics
 parallaxBackgroundImage: image/e-content1.png
 title-slide-attributes:
     data-background-image: image/e-title.png
-    data-background-size: contain
+    data-background-size: cover
 ---
 
 # Confusion matrix

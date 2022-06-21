@@ -3,7 +3,7 @@ title: Best Practices
 parallaxBackgroundImage: image/e-content1.png
 title-slide-attributes:
     data-background-image: image/e-title.png
-    data-background-size: contain
+    data-background-size: cover
 ---
 
 # Before starting a machine learning project
@@ -27,30 +27,17 @@ title-slide-attributes:
 :::
 
 # During doing machine learning
-## Pipeline or workflow
-- Having a bad pipeline is better than nothing
-  - Make one and optimize it
 
 ## Data
-:::incremental
-- Be patient with data engineering
-- Split data to training, evaluation and test datasets
 - NEVER mix using data:
   - training data only for training
-  - evaluation data only for evaluation
-  - test data only for test
 - Use common-sense features
-- Borrow features from state-of-art models
 :::
 
 
 ## Model
 :::incremental
-- Keep your fist model simple
-  - Make it work is half of the success
-- Be more patient with training
   - It is an iterative cycle to improve your model
-- "Measure first, optimize second", design metrics for specific issues
 :::
 
 # After training
@@ -60,7 +47,6 @@ title-slide-attributes:
 
 ## Re-train
 - Retrain the model when possible
-  - e.g. more new data
 
 # Thank you {background-image="image/e-end1.png"}
 ## Q&A {background-image="image/e-end1.png"}

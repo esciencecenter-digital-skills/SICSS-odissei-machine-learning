@@ -3,7 +3,7 @@ title: Regression theory
 parallaxBackgroundImage: image/e-content1.png
 title-slide-attributes:
     data-background-image: image/e-title.png
-    data-background-size: contain
+    data-background-size: cover
 ---
 
 # Intro
@@ -28,7 +28,7 @@ ML is meant to
 
 - make the target $\hat{y}(w, x)$ as close as possible to real values in training data
 - by choosing proper weights $w$
-  - with [optimization algorithm](https://en.wikipedia.org/wiki/Mathematical_optimization) (learning algorithm)
+  - with [optimization algorithm](https://en.wikipedia.org/wiki/Mathematical_optimization)
 
 ::: fragment
 - the "error" or "cost" between real values and predicted values is presented with [loss function](https://en.wikipedia.org/wiki/Loss_function)
