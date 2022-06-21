@@ -27,7 +27,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="image/e-title.png" data-background-size="contain">
+<section id="title-slide" data-background-image="image/e-title.png" data-background-size="cover">
   <h1 class="title">Best Practices</h1>
 </section>
 
@@ -62,8 +62,20 @@ machine learning problem?
 <li class="fragment">First design and implement metrics</li>
 </ul></li>
 <li class="fragment">Do you have good enough infrastructure?</li>
+<li class="fragment">Are there any risks related to privacy and
+ethics?</li>
 </ul>
 </div>
+<aside class="notes">
+<p>Biased data leads to biased model.</p>
+<p>Suggestions about privacy &amp; ethics risks:</p>
+<ul>
+<li>increase awareness of privacy and ethics</li>
+<li>discuss the risks before conducting project with stakeholder</li>
+<li>be careful with the limitations of others’ ML model</li>
+<li>state the limitations of your model when make it public</li>
+</ul>
+</aside>
 </section></section>
 <section>
 <section id="during-doing-machine-learning"
@@ -71,30 +83,37 @@ class="title-slide slide level1">
 <h1>During doing machine learning</h1>
 
 </section>
-<section id="pipeline-or-workflow" class="slide level2">
-<h2>Pipeline or workflow</h2>
+<section id="workflow-or-pipeline" class="slide level2">
+<h2>Workflow or pipeline</h2>
 <ul>
-<li>Having a bad pipeline is better than nothing
+<li>Having a bad workflow is better than nothing
 <ul>
-<li>Make one and optimize it</li>
+<li>Make one and then optimize it</li>
 </ul></li>
 </ul>
+</section>
+<section class="slide level2">
+
+<p><img data-src="image/4.1-ML-project-time-costs.png" height="450" />
+<!-- https://www.cloudfactory.com/data-labeling-guide --></p>
 </section>
 <section id="data" class="slide level2">
 <h2>Data</h2>
 <div>
 <ul>
-<li class="fragment">Be patient with data engineering</li>
-<li class="fragment">Split data to training, evaluation and test
-datasets</li>
+<li class="fragment">Be very patient with data engineering</li>
+<li class="fragment">Split data to training, validation and test
+sets</li>
 <li class="fragment">NEVER mix using data:
 <ul>
 <li class="fragment">training data only for training</li>
-<li class="fragment">evaluation data only for evaluation</li>
-<li class="fragment">test data only for test</li>
+<li class="fragment">validation data only for validation (picking
+model)</li>
+<li class="fragment">test data only for test (estimating generalization
+performance)</li>
 </ul></li>
 <li class="fragment">Use common-sense features</li>
-<li class="fragment">Borrow features from state-of-art models</li>
+<li class="fragment">Borrow features from state-of-the-art models</li>
 </ul>
 </div>
 </section>
@@ -102,16 +121,17 @@ datasets</li>
 <h2>Model</h2>
 <div>
 <ul>
-<li class="fragment">Keep your fist model simple
+<li class="fragment">Set a baseline performance/model
 <ul>
-<li class="fragment">Make it work is half of the success</li>
+<li class="fragment">use state-of-the-art model</li>
+<li class="fragment">human performance</li>
+<li class="fragment">guess it with your experience</li>
 </ul></li>
-<li class="fragment">Be more patient with training
+<li class="fragment">Keep your first model simple</li>
+<li class="fragment">Be patient with training
 <ul>
 <li class="fragment">It is an iterative cycle to improve your model</li>
 </ul></li>
-<li class="fragment">“Measure first, optimize second”, design metrics
-for specific issues</li>
 </ul>
 </div>
 </section></section>
@@ -131,7 +151,7 @@ for specific issues</li>
 <ul>
 <li>Retrain the model when possible
 <ul>
-<li>e.g. more new data</li>
+<li>e.g. new data, new features</li>
 </ul></li>
 </ul>
 </section></section>
