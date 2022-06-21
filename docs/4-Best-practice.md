@@ -24,21 +24,55 @@ title-slide-attributes:
 - How do you measure the model performance?
   - First design and implement metrics
 - Do you have good enough infrastructure?
+- Are there any risks related to privacy and ethics?
+:::
+
+::: notes
+Biased data leads to biased model.
+
+Suggestions about privacy & ethics risks:
+
+- increase awareness of privacy and ethics
+- discuss the risks before conducting project with stakeholder
+- be careful with the limitations of others' ML model
+- state the limitations of your model when make it public
 :::
 
 # During doing machine learning
+## Workflow or pipeline
+- Having a bad workflow is better than nothing
+  - Make one and then optimize it
+
+---
+
+![](image/4.1-ML-project-time-costs.png){height=450px}
+<!-- https://www.cloudfactory.com/data-labeling-guide -->
 
 ## Data
+
+::: incremental
+- Be very patient with data engineering
+- Split data to training, validation and test sets
 - NEVER mix using data:
   - training data only for training
+  - validation data only for validation (picking model)
+  - test data only for test (estimating generalization performance)
 - Use common-sense features
+- Borrow features from state-of-the-art models
 :::
 
 
 ## Model
 :::incremental
+- Set a baseline performance/model
+  - use state-of-the-art model
+  - human performance
+  - guess it with your experience
+- Keep your first model simple
+- Be patient with training
   - It is an iterative cycle to improve your model
 :::
+
 
 # After training
 
@@ -47,6 +81,7 @@ title-slide-attributes:
 
 ## Re-train
 - Retrain the model when possible
+  - e.g. new data, new features
 
 # Thank you {background-image="image/e-end1.png"}
 ## Q&A {background-image="image/e-end1.png"}
