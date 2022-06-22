@@ -307,40 +307,6 @@ activation functions <code>logistic</code>, <code>tanh</code> and
 practice, use the default <code>relu</code> is good enough.</p>
 </aside>
 </section>
-<section class="slide level2">
-
-<h3 id="nn-v.s.-linear-regression">NN v.s. linear regression</h3>
-<div>
-<ul>
-<li class="fragment">NN stacked layers and non-linearity → detect more
-complex patterns</li>
-<li class="fragment">Neurons is kind of <em>feature extractor</em></li>
-<li class="fragment">However, NN requires large amount of data to detect
-the patterns and extract the features</li>
-</ul>
-</div>
-<aside class="notes">
-<p>The design of the neural network, with it’s non-linearity and layers
-stacked on top of each other, allows for much more complex patterns to
-be detected than with linear regression.</p>
-<p>We can view the neurons as <em>feature detectors</em>, that retrieve
-relevant pieces of information from the input data.</p>
-<p>The flipside of the coin, is that often we need large amounts of
-training data to be able to learn these features.</p>
-</aside>
-</section>
-<section class="slide level2">
-
-<h3 id="deep-learning-frameworks">Deep learning frameworks</h3>
-<p><code>scikit-learn</code> NN model is multi-layer perceptron</p>
-<p>To use more complex NN, other framework should be used, e.g. <a
-href="https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software">PyTorch,
-Keras, TensorFlow, etc</a>.</p>
-<div class="fragment">
-<p>Want to have a look at various NN models? Try <a
-href="https://alexlenail.me/NN-SVG/index.html">plot NN</a></p>
-</div>
-</section>
 <section id="loss-function-1" class="slide level2">
 <h2>Loss function</h2>
 <p>Loss function can be shared by all regression models</p>
@@ -390,6 +356,40 @@ href="https://en.wikipedia.org/wiki/Backpropagation">Backpropagation</a></p>
 <li>but a method to compute gradients for neural network. Then these
 gradients are used by optimization algorithm to update weights.</li>
 </ul>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<h3 id="nn-v.s.-linear-regression">NN v.s. linear regression</h3>
+<div>
+<ul>
+<li class="fragment">NN stacked layers and non-linearity → detect more
+complex patterns</li>
+<li class="fragment">Neurons is kind of <em>feature extractor</em></li>
+<li class="fragment">However, NN requires large amount of data to detect
+the patterns and extract the features</li>
+</ul>
+</div>
+<aside class="notes">
+<p>The design of the neural network, with it’s non-linearity and layers
+stacked on top of each other, allows for much more complex patterns to
+be detected than with linear regression.</p>
+<p>We can view the neurons as <em>feature detectors</em>, that retrieve
+relevant pieces of information from the input data.</p>
+<p>The flipside of the coin, is that often we need large amounts of
+training data to be able to learn these features.</p>
+</aside>
+</section>
+<section class="slide level2">
+
+<h3 id="deep-learning-frameworks">Deep learning frameworks</h3>
+<p><code>scikit-learn</code> NN model is multi-layer perceptron</p>
+<p>To use more complex NN, other framework should be used, e.g. <a
+href="https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software">PyTorch,
+Keras, TensorFlow, etc</a>.</p>
+<div class="fragment">
+<p>Want to have a look at various NN models? Try <a
+href="https://alexlenail.me/NN-SVG/index.html">plot NN</a></p>
+</div>
 </section>
 <section id="summary-1" class="slide level2">
 <h2>Summary:</h2>
