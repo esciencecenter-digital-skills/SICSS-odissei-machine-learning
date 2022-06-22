@@ -221,7 +221,45 @@ Question: what is the difference with linear model?
 [Activation function](https://en.wikipedia.org/wiki/Activation_function) is also called transfer function. Commonly used non-linear activation functions `logistic`, `tanh` and `relu` are available in `scikit-learn`. In practice, use the default `relu` is good enough.
 :::
 
+## Loss function
+Loss function can be shared by all regression models
+
+$$J(w) = ||y - \hat{y}||^2$$
+
+
+## Optimization algorithms
+
+::: fragment
+[Stochastic Gradient Descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent)(SGD)
+
+- GD uses actual gradient, calculated from the entire training data
+- SGD use an estimate calculated from a randomly selected subset of the training data
+:::
+
+::: notes
+Neural network also use gradient descent as [optimization algorithm](https://scikit-learn.org/stable/modules/neural_networks_supervised.html#algorithms).
+
+More details about SGD can be found in [scikit-learn guide](https://scikit-learn.org/stable/modules/sgd.html).
+:::
+
 ---
+
+[Adam](https://en.wikipedia.org/wiki/Stochastic_gradient_descent#Adam)(Adaptive Moment Estimation)
+
+- also a stochastic optimizer
+- but can automatically adjust the amount to update weights
+- works great on large datasets (thousands of training samples or more) in terms of both training time and validation score
+- Use `Adam` as the first choice in practice
+
+---
+
+[Backpropagation](https://en.wikipedia.org/wiki/Backpropagation)
+
+- not a optimization algorithm
+- but a method to compute gradients for neural network. Then these gradients are used by optimization algorithm to update weights.
+
+
+##
 
 ### NN v.s. linear regression
 
@@ -249,44 +287,6 @@ To use more complex NN, other framework should be used, e.g. [PyTorch, Keras, Te
 ::: fragment
 Want to have a look at various NN models? Try [plot NN](https://alexlenail.me/NN-SVG/index.html)
 :::
-
-## Loss function
-Loss function can be shared by all regression models
-
-$$J(w) = ||y - \hat{y}||^2$$
-
-
-## Optimization algorithms
-
-::: fragment
-[Stochastic Gradient Descent](https://en.wikipedia.org/wiki/Stochastic_gradient_descent)(SGD)
-
-- GD uses actual gradient, calculated from the entire training data
-- SGD use an estimate calculated from a randomly selected subset of the training data
-:::
-
-::: notes
-Neural network also use gradient descent as [optimization algorithm](https://scikit-learn.org/stable/modules/neural_networks_supervised.html#algorithms).
-
-More details about SGD can be found in [scikit-learn guide](https://scikit-learn.org/stable/modules/sgd.html).
-:::
-
-
----
-
-[Adam](https://en.wikipedia.org/wiki/Stochastic_gradient_descent#Adam)(Adaptive Moment Estimation)
-
-- also a stochastic optimizer
-- but can automatically adjust the amount to update weights
-- works great on large datasets (thousands of training samples or more) in terms of both training time and validation score
-- Use `Adam` as the first choice in practice
-
----
-
-[Backpropagation](https://en.wikipedia.org/wiki/Backpropagation)
-
-- not a optimization algorithm
-- but a method to compute gradients for neural network. Then these gradients are used by optimization algorithm to update weights.
 
 
 ## Summary:
