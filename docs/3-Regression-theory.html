@@ -157,9 +157,9 @@ w_n)\)</span> are coefficients.</li>
 does this model capture the data that we observe?</p>
 <div class="fragment">
 <p>We could use loss function</p>
-<p><span class="math display">\[ J(w) = ||y - \hat{y}||^2 \]</span></p>
-<p>the sum of squares of the differences between real values <span
-class="math inline">\(y\)</span> and predicted values <span
+<p><span class="math display">\[ J(w) = (y - \hat{y})^2 \]</span></p>
+<p>square of the difference between real value <span
+class="math inline">\(y\)</span> and predicted value <span
 class="math inline">\(\hat{y}\)</span></p>
 </div>
 <aside class="notes">
@@ -237,8 +237,8 @@ convergence: } \\
 <ul>
 <li>Model presentation: <span class="math inline">\(\hat{y} (w,x) = w_0
 + w_1 x_1 + \cdots + w_n x_n\)</span></li>
-<li>Loss function: <span class="math inline">\(J(w) = ||y -
-\hat{y}||^2\)</span></li>
+<li>Loss function: <span class="math inline">\(J(w) = (y -
+\hat{y})^2\)</span></li>
 <li>Optimization algorithm: Gradient Descent</li>
 </ul>
 </section></section>
@@ -310,7 +310,7 @@ practice, use the default <code>relu</code> is good enough.</p>
 <section id="loss-function-1" class="slide level2">
 <h2>Loss function</h2>
 <p>Loss function can be shared by all regression models</p>
-<p><span class="math display">\[J(w) = ||y - \hat{y}||^2\]</span></p>
+<p><span class="math display">\[J(w) = (y - \hat{y})^2\]</span></p>
 </section>
 <section id="optimization-algorithms" class="slide level2">
 <h2>Optimization algorithms</h2>
@@ -396,8 +396,8 @@ href="https://alexlenail.me/NN-SVG/index.html">plot NN</a></p>
 <p>Neural network</p>
 <ul>
 <li>Model presentation: multi-layer perceptron</li>
-<li>Loss function: <span class="math inline">\(J(w) = ||y -
-\hat{y}||^2\)</span></li>
+<li>Loss function: <span class="math inline">\(J(w) = (y -
+\hat{y})^2\)</span></li>
 <li>Optimization algorithm: SGD, ADAM</li>
 </ul>
 </section></section>
