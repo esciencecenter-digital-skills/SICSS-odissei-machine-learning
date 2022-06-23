@@ -99,9 +99,9 @@ We have a linear model with certain values for the weights. How well does this m
 ::: fragment
 We could use loss function
 
-$$ J(w) = ||y - \hat{y}||^2 $$
+$$ J(w) = (y - \hat{y})^2 $$
 
- the sum of squares of the differences between real values $y$ and predicted values $\hat{y}$
+square of the difference between real value $y$ and predicted value $\hat{y}$
 :::
 
 ::: notes
@@ -172,7 +172,7 @@ $$
 Linear regression
 
 - Model presentation: $\hat{y} (w,x) = w_0 + w_1 x_1 + \cdots + w_n x_n$
-- Loss function: $J(w) = ||y - \hat{y}||^2$
+- Loss function: $J(w) = (y - \hat{y})^2$
 - Optimization algorithm: Gradient Descent
 
 # Neural network (non-linear regression)
@@ -224,7 +224,7 @@ Question: what is the difference with linear model?
 ## Loss function
 Loss function can be shared by all regression models
 
-$$J(w) = ||y - \hat{y}||^2$$
+$$J(w) = (y - \hat{y})^2$$
 
 
 ## Optimization algorithms
@@ -294,7 +294,7 @@ Want to have a look at various NN models? Try [plot NN](https://alexlenail.me/NN
 Neural network
 
 - Model presentation: multi-layer perceptron
-- Loss function: $J(w) = ||y - \hat{y}||^2$
+- Loss function: $J(w) = (y - \hat{y})^2$
 - Optimization algorithm: SGD, ADAM
 
 # Thank you {background-image="image/e-end1.png"}
