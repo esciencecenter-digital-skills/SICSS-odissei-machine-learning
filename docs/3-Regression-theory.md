@@ -99,9 +99,9 @@ We have a linear model with certain values for the weights. How well does this m
 ::: fragment
 We could use loss function
 
-$$ J(w) = (y - \hat{y})^2 $$
+$$ J(w) = \frac{1}{m}\sum_{i=1}^m (y_i - \hat{y}_i)^2 $$
 
-square of the difference between real value $y$ and predicted value $\hat{y}$
+mean square error, error is the difference between real value $y$ and predicted value $\hat{y}$
 :::
 
 ::: notes
@@ -146,6 +146,8 @@ i.e. to keep changing weights $w$ to reduce loss $J(w)$ until it hopefully ends 
 The most basic and popular optimization algorithm is [gradient descent](https://en.wikipedia.org/wiki/Gradient_descent), also known as steepest descent.
 
 The basic idea is to take repeated steps in the opposite direction of the gradient of the loss function, i.e. $\displaystyle \nabla{_wJ} = \frac{\partial{}}{\partial{w}}J(w)$, which will lead to a local minimum of loss function, as shown below.
+
+The initial weights, if not given, are zeros in [scikit-learn that use `lsqr` for linear regression](https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.linalg.lsqr.html)
 :::
 
 
@@ -172,7 +174,7 @@ $$
 Linear regression
 
 - Model presentation: $\hat{y} (w,x) = w_0 + w_1 x_1 + \cdots + w_n x_n$
-- Loss function: $J(w) = (y - \hat{y})^2$
+- Loss function: $J(w) = \frac{1}{m}\sum_{i=1}^m (y_i - \hat{y}_i)^2$
 - Optimization algorithm: Gradient Descent
 
 # Neural network (non-linear regression)
@@ -224,7 +226,7 @@ Question: what is the difference with linear model?
 ## Loss function
 Loss function can be shared by all regression models
 
-$$J(w) = (y - \hat{y})^2$$
+$$ J(w) = \frac{1}{m}\sum_{i=1}^m (y_i - \hat{y}_i)^2 $$
 
 
 ## Optimization algorithms
@@ -294,7 +296,7 @@ Want to have a look at various NN models? Try [plot NN](https://alexlenail.me/NN
 Neural network
 
 - Model presentation: multi-layer perceptron
-- Loss function: $J(w) = (y - \hat{y})^2$
+- Loss function: $J(w) = \frac{1}{m}\sum_{i=1}^m (y_i - \hat{y}_i)^2$
 - Optimization algorithm: SGD, ADAM
 
 # Thank you {background-image="image/e-end1.png"}

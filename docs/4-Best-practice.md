@@ -25,6 +25,7 @@ title-slide-attributes:
   - First design and implement metrics
 - Do you have good enough infrastructure?
 - Are there any risks related to privacy and ethics?
+  - [Deon ethics checklist](https://deon.drivendata.org/)
 :::
 
 ::: notes
@@ -36,6 +37,8 @@ Suggestions about privacy & ethics risks:
 - discuss the risks before conducting project with stakeholder
 - be careful with the limitations of others' ML model
 - state the limitations of your model when make it public
+
+[A famous paper about biased ML](https://proceedings.neurips.cc/paper/2016/file/a486cd07e4ac3d270571622f4f316ec5-Paper.pdf)
 :::
 
 # During doing machine learning
@@ -78,6 +81,9 @@ Suggestions about privacy & ethics risks:
 
 ## Versioning
 - Version your data, code and everything
+  - using [git and github](https://github.com/)
+  - [MLFlow](https://mlflow.org/)
+  - [Weights & Biases](https://wandb.ai)
 
 ## Re-train
 - Retrain the model when possible
