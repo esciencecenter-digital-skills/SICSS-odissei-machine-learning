@@ -14,3 +14,8 @@ We use 1920x1080 images as slides background, so the presentation will show best
 The markdown format is [Pandoc's markdown](https://pandoc.org/MANUAL.html#pandocs-markdown).
 
 Check [Pandoc slides section](https://pandoc.org/MANUAL.html#slide-shows) for detailed syntax.
+
+Command to generate the html:
+```
+pandoc -t revealjs -s 1-Introduction.md -o 1-Introduction.html --variable theme=white --variable revealjs-url=https://cdn.jsdelivr.net/npm/reveal.js@4.4.0
+```
